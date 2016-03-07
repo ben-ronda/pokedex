@@ -142,7 +142,7 @@
             $this->assertEquals([$test_type2], Type::getAll());
         }
 
-        function testFindType()
+        function testFindTypeById()
         {
             //Arrange
             $name = "Fire";
@@ -159,7 +159,30 @@
             $test_type2->save();
 
             //Act
-            $result = Type::findType($test_type->getId());
+            $result = Type::findTypeById($test_type->getId());
+
+            //Assert
+            $this->assertEquals($test_type, $result);
+        }
+
+        function testFindTypeByName()
+        {
+            //Arrange
+            $name = "Fire";
+            $weakness = "Water";
+            $id = null;
+
+            $name2 = "Ground";
+            $weakness2 = "Water";
+            $id2 = null;
+
+            $test_type = new Type($name, $weakness, $id);
+            $test_type->save();
+            $test_type2 = new Type($name2, $weakness2, $id);
+            $test_type2->save();
+
+            //Act
+            $result = Type::findTypeByName("fIrE");
 
             //Assert
             $this->assertEquals($test_type, $result);
