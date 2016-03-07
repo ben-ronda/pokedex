@@ -38,26 +38,28 @@
             $this->assertEquals($test_type, $result[0]);
         }
 
-        // function testGetAll()
-        // {
-        //     //Arrange
-        //     $name = "John Clancy";
-        //     $id = 2;
-        //
-        //     $name2 = "Robert Ludlum";
-        //     $id2 = 3;
-        //
-        //     $test_type = new Type($name, $id);
-        //     $test_type->save();
-        //     $test_type2 = new Type($name2, $id2);
-        //     $test_type2->save();
-        //
-        //     //Act
-        //     $result = Type::getAll();
-        //
-        //     //Assert
-        //     $this->assertEquals([$test_type, $test_type2], $result);
-        // }
+        function testGetAll()
+        {
+            //Arrange
+            $name = "Fire";
+            $weakness = "Water";
+            $id = null;
+
+            $name2 = "Ground";
+            $weakness2 = "Water";
+            $id2 = null;
+
+            $test_type = new Type($name, $weakness, $id);
+            $test_type->save();
+            $test_type2 = new Type($name2, $weakness2, $id);
+            $test_type2->save();
+
+            //Act
+            $result = Type::getAll();
+
+            //Assert
+            $this->assertEquals([$test_type, $test_type2], $result);
+        }
         //
         // function testDeleteAll()
         // {
