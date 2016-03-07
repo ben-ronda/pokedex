@@ -3,12 +3,13 @@
     {
         private $name;
         private $weakness;
+        private $img_path;
         private $id;
 
         function __construct($name, $weakness, $id = null)
         {
             $this->name = $name;
-
+            $this->weakness = $weakness;
             $this->id = $id;
         }
 
