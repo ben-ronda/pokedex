@@ -102,6 +102,23 @@
             $this->assertEquals("Electric", $test_type->getName());
         }
 
+        function testUpdateTypeWeakness()
+        {
+            //Arrange
+            $name = "Fire";
+            $weakness = "Water";
+            $id = null;
+            $test_type = new Type($name, $weakness, $id);
+            $test_type->save();
+            $new_type = "Ground";
+
+            //Act
+            $test_type->updateTypeWeakness($new_type);
+
+            //Assert
+            $this->assertEquals("Ground", $test_type->getWeakness());
+        }
+
         // function testDeleteType()
         // {
         //     //Arrange
