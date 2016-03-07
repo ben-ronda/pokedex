@@ -19,7 +19,7 @@
 
         protected function tearDown()
         {
-            Type::deleteAll();
+            // Type::deleteAll();
         }
 
         function testSave()
@@ -183,6 +183,29 @@
 
             //Act
             $result = Type::findTypeByName("fIrE");
+
+            //Assert
+            $this->assertEquals($test_type, $result);
+        }
+
+        function testFindTypeByPartial()
+        {
+            //Arrange
+            $name = "Fire";
+            $weakness = "Water";
+            $id = null;
+
+            $name2 = "Ground";
+            $weakness2 = "Water";
+            $id2 = null;
+
+            $test_type = new Type($name, $weakness, $id);
+            $test_type->save();
+            $test_type2 = new Type($name2, $weakness2, $id);
+            $test_type2->save();
+
+            //Act
+            $result = Type::findTypeByName("frie");
 
             //Assert
             $this->assertEquals($test_type, $result);

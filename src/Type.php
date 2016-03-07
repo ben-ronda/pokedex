@@ -85,7 +85,7 @@
         {
             $found_type = null;
             $search_name = ucfirst(strtolower($search_name));
-            $types = Type::getAll();
+            $types = $GLOBALS['DB']->query("SELECT * FROM types WHERE SOUNDEX(name) = SOUNDEX($search_name);");
             foreach($types as $type) {
                 $type_name = $type->getName();
                 if ($type_name == $search_name) {
