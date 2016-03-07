@@ -5,7 +5,7 @@
         private $weakness;
         private $id;
 
-        function __construct($name, $id = null)
+        function __construct($name, $weakness, $id = null)
         {
             $this->name = $name;
 
@@ -51,7 +51,7 @@
                 $name = $type['name'];
                 $weakness = $type['weakness'];
                 $id = $type['id'];
-                $new_type = new Type($name, $id);
+                $new_type = new Type($name, $weakness, $id);
                 array_push($types, $new_type);
             }
             return $types;

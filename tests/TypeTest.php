@@ -26,7 +26,7 @@
         {
             //Arrange
             $name = "Fire";
-            $weakness = "Water"
+            $weakness = "Water";
             $id = null;
             $test_type = new Type($name, $weakness, $id);
             $test_type->save();
