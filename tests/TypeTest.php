@@ -41,8 +41,8 @@
         function testGetAll()
         {
             //Arrange
-            $name = "Fire";
-            $weakness = "Water";
+            $name = "Water";
+            $weakness = "Electric";
             $id = null;
 
             $name2 = "Ground";
@@ -58,7 +58,7 @@
             $result = Type::getAll();
 
             //Assert
-            $this->assertEquals([$test_type, $test_type2], $result);
+            $this->assertEquals([$test_type2, $test_type], $result);
         }
 
         function testDeleteAll()
@@ -188,26 +188,6 @@
             $this->assertEquals($test_type, $result);
         }
 
-
-        function getPokemon()
-        {
-            $returned_pokemons = $GLOBALS['DB']->query("SELECT pokemons.* FROM pokedex
-                JOIN pokemons_types ON (types.id = types_pokemons.type_id)
-                JOIN pokemons ON (types_pokemons.pokemon_id = pokemons.id)
-                WHERE types.id = {$this->getId()};");
-            $pokemons = array() ;
-            foreach($returned_pokemons as $pokemon) {
-                $name = $pokemon['name'];
-                $dex_number = $pokemon['dex_number'];
-                $height_feet = $pokemon['height_feet'];
-                $height_inches = $pokemon['height_inches'];
-                $weight = $pokemon['weight'];
-                $id = $pokemon['id'];
-                $new_pokemon = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight, $id);
-                array_push($pokemons, $new_pokemon);
-            }
-            return $pokemons;
-        }
     }
 
 ?>
