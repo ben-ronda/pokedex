@@ -16,13 +16,40 @@
         function test_getName(){
             $name = "Bulbasaur";
             $number = "001";
-            $height = "";
+            $height_feet = 2;
+            $height_inches = 04;
             $weight = "15.2 lbs";
-            $test_pokemon = new Pokemon($name, $number, $height, $weight);
+            $test_pokemon = new Pokemon($name, $number, $height_feet, $height_inches, $weight);
 
             $result = $test_pokemon->getName();
 
             $this->assertEquals($name, $result);
+        }
+
+        function test_getNumber(){
+            $name = "Bulbasaur";
+            $number = "001";
+            $height_feet = 2;
+            $height_inches = 04;
+            $weight = "15.2 lbs";
+            $test_pokemon = new Pokemon($name, $number, $height_feet, $height_inches, $weight);
+
+            $result = $test_pokemon->getNumber();
+
+            $this->assertEquals($number, $result);
+        }
+
+        function test_getWeight() {
+          $name = "Bulbasaur";
+          $number = "001";
+          $height_feet = 2;
+          $height_inches = 04;
+          $weight = "15.2 lbs";
+          $test_pokemon = new Pokemon($name, $number, $height_feet, $height_inches, $weight);
+
+          $result = $test_pokemon->getWeight();
+
+          $this->assertEquals($weight, $result);
         }
     }
 ?>
