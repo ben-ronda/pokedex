@@ -84,24 +84,24 @@
             $result = Type::getAll();
             $this->assertEquals([], $result);
         }
-        //
-        // function testUpdateType()
-        // {
-        //     //Arrange
-        //     $name = "John Clancy";
-        //     $id = 2;
-        //
-        //     $test_type = new Type($name, $id);
-        //     $test_type->save();
-        //     $new_name = "Jon Clancy";
-        //
-        //     //Act
-        //     $test_type->updateType($new_name);
-        //
-        //     //Assert
-        //     $this->assertEquals("Jon Clancy", $test_type->getName());
-        // }
-        //
+
+        function testUpdateTypeName()
+        {
+            //Arrange
+            $name = "Fire";
+            $weakness = "Water";
+            $id = null;
+            $test_type = new Type($name, $weakness, $id);
+            $test_type->save();
+            $new_name = "Electric";
+
+            //Act
+            $test_type->updateTypeName($new_name);
+
+            //Assert
+            $this->assertEquals("Electric", $test_type->getName());
+        }
+
         // function testDeleteType()
         // {
         //     //Arrange
