@@ -132,14 +132,14 @@
             $height_feet2 = 2;
             $height_inches2 = 00;
             $weight2 = 18.7;
-            $test_pokemon2 = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight);
+            $test_pokemon2 = new Pokemon($name2, $dex_number2, $height_feet2, $height_inches2, $weight2);
             $test_pokemon2->save();
 
             $result = Pokemon::searchName($test_pokemon2->getName());
-
+            var_dump($test_pokemon2);
             var_dump($result);
 
-            $this->assertEquals($test_pokemon2, $result);
+            $this->assertEquals([$test_pokemon2], $result);
         }
     }
 ?>

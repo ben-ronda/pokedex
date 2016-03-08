@@ -42,6 +42,11 @@
             return $this->id;
         }
 
+        // function getImagePath(){
+        //     return $this->img;
+        // }
+
+
         function save(){
             $GLOBALS['DB']->exec("INSERT INTO pokemon (name, height_feet, height_inches, weight, dex_number)
             VALUES ('{$this->getName()}', {$this->getHeightFeet()}, {$this->getHeightInches()}, {$this->getWeight()}, '{$this->getDexNumber()}');");
@@ -49,16 +54,20 @@
         }
 
         static function searchName($search_name){
-            $found_pokemon = null;
-            $search_name = strtolower($search_name);
-            $all = Pokemon::getAll();
-            foreach($all as $pokemon){
-                $name = strtolower($pokemon->getName());
-                if($name == $search_name){
-                    $found_pokemon = $pokemon;
-                }
+            $matches = array();
+            $returned_pokemon = $GLOBALS['DB']->query("SELECT * FROM pokemon WHERE LOWER(pokemon.name) LIKE LOWER('%{$search_name}%');");
+            foreach($returned_pokemon as $pokemon){
+                $name = $pokemon['name'];
+                $dex_number = $pokemon['dex_number'];
+                $height_feet = $pokemon['height_feet'];
+                $height_inches = $pokemon['height_inches'];
+                $weight = $pokemon['weight'];
+                $id = $pokemon['id'];
+                $new_pokemon = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight, $id);
+
+                array_push($matches, $new_pokemon);
             }
-            return $found_pokemon;
+            return $matches;
         }
 
         static function getAll(){
