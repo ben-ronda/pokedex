@@ -3,7 +3,6 @@
     {
         private $name;
         private $weakness;
-        private $img_path;
         private $id;
 
         function __construct($name, $weakness, $id = null)
@@ -80,20 +79,30 @@
             }
             return $found_type;
         }
+        //need to figure this out still for partial/misspelled
+        // static function findTypeByName($search_name)
+        // {
+        //     $search_name = ucfirst(strtolower($search_name));
+        //     $query = $GLOBALS['DB']->query("SELECT * FROM types WHERE soundex(name) = soundex('{$search_name}');");
+        //     $type = $query->fetchAll(PDO::FETCH_ASSOC);
+        //     $name = $type['name'];
+        //     $weakness = $type['weakness'];
+        //     $id = $type['id'];
+        //     $new_type = new Type($name, $weakness, $id);
+        //     if ($new_type->getName() == $search_name) {
+        //       return $new_type;
+        //     }
+        // }
 
         static function findTypeByName($search_name)
         {
-            $found_type = null;
-            $search_name = ucfirst(strtolower($search_name));
-            $types = $GLOBALS['DB']->query("SELECT * FROM types WHERE SOUNDEX(name) = SOUNDEX($search_name);");
-            foreach($types as $type) {
-                $type_name = $type->getName();
-                if ($type_name == $search_name) {
-                    $found_type = $type;
+            $types = Type::getAll();
+            foreach($types as $type){
+                if (soundex($type->getName()) == soundex($search_name)) {
                 }
             }
-            return $found_type;
-        }
+            return $type;
+      }
 
         function updateTypeName($new_name)
         {
@@ -113,7 +122,7 @@
                 JOIN pokemons_types ON (types.id = types_pokemons.type_id)
                 JOIN pokemons ON (types_pokemons.pokemon_id = pokemons.id)
                 WHERE types.id = {$this->getId()};");
-            $pokemons = array() ;
+            $pokemons = array();
             foreach($returned_pokemons as $pokemon) {
                 $name = $pokemon['name'];
                 $dex_number = $pokemon['dex_number'];
