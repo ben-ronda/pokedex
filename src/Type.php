@@ -172,23 +172,6 @@
             }
             return $final_matches;
 
-
-
-            //
-            // $returned_pokemon = array_intersect($returned_pokemon1, $returned_pokemon2);
-            //
-            // $pokemon = array();
-            // foreach($returned_pokemon as $pokemon) {
-            //     $name = $pokemon['name'];
-            //     $dex_number = $pokemon['dex_number'];
-            //     $height_feet = $pokemon['height_feet'];
-            //     $height_inches = $pokemon['height_inches'];
-            //     $weight = $pokemon['weight'];
-            //     $id = $pokemon['id'];
-            //     $new_pokemon = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight, $id);
-            //     array_push($pokemon, $new_pokemon);
-            // }
-            // return $pokemon;
         }
     }
 
