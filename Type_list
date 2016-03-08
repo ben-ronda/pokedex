@@ -1,0 +1,256 @@
+INSERT INTO types (name, weakness, strength) VALUES ('Bug', 'Fire, Flying, Rock', 'Grass, Psychic);
+
+INSERT INTO types (name, weakness, strength) VALUES ('Dragon', 'Dragon, Ice', 'Dragon');
+
+INSERT INTO types (name, weakness, strength) VALUES ('Electric', 'Ground', 'Flying, Water');
+
+INSERT INTO types (name, weakness, strength) VALUES ('Fighting', 'Flying, Psychic', ' Ice, Normal, Rock');
+
+INSERT INTO types (name, weakness, strength) VALUES ('Fire', 'Ground, Rock, Water', 'Bug, Grass, Ice');
+
+INSERT INTO types (name, weakness, strength) VALUES ('Flying', 'Electric, Ice, Rock', 'Bug, Grass, Fighting');
+
+INSERT INTO types (name, weakness, strength) VALUES ('Ghost', 'Ghost', 'Ghost, Psychic');
+
+INSERT INTO types (name, weakness, strength) VALUES ('Grass', 'Bug, Fire, Flying, Ice, Poison', 'Ground, Rock, Water');
+
+INSERT INTO types (name, weakness, strength) VALUES ('Ground', 'Grass, Ice, Water', 'Electric, Fire, Poison, Rock');
+
+INSERT INTO types (name, weakness, strength) VALUES ('Ice', 'Fighting, Fire, Rock, Steel', 'Dragon, Flying, Grass, Ground');
+
+INSERT INTO types (name, weakness, strength) VALUES ('Normal', 'Fighting', 'N/A');
+
+INSERT INTO types (name, weakness, strength) VALUES ('Poison', 'Ground, Psychic', 'Grass');
+
+INSERT INTO types (name, weakness, strength) VALUES ('Psychic', 'Bug,  Ghost', 'Fighting, Poison');
+
+INSERT INTO types (name, weakness, strength) VALUES ('Rock', 'Fighting, Grass, Ground, Steel, Water', 'Bug, Fire, Flying, Ice');
+
+
+INSERT INTO types (name, weakness, strength) VALUES ('Water', 'Electric, Ground, Rock', 'Fire, Ground Rock');
+
+
+
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (9, 2);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (13, 2);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (9, 3);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (13, 3);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (9, 4);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (13, 4);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (6, 5);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (6, 6);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (6, 7);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (7, 7);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (17, 8);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (17, 9);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (17, 10);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (1, 11);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (1, 12);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (1, 13);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (7, 13);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (1, 14);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (13, 14);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (1, 15);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (13, 15);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (1, 16);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (13, 16);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (7, 17);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (12, 17);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (7, 18);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (12, 18);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (7, 19);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (12, 19);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (12, 20);
+
+
+
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (12, 21);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (12, 22);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (7, 22);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (7, 23);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (12, 23);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (13, 24);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (13, 25);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (4, 26);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (4, 27);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (10, 28);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (10, 29);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (13, 30);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (13, 31);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (13, 32);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (10, 32);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (13, 33);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (13, 34);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (13, 35);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (10, 35);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (12, 36);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (12, 37);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (6, 38);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (6, 39);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (12, 40);
+
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (12, 41);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (7, 42);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (13, 42);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (7, 43);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (13, 43);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (13, 44);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (9, 44);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (13, 45);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (9, 45);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (13, 46);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (9, 46);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (1, 47);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (9, 47);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (1, 48);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (9, 48);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (1, 49);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (13, 49);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (13, 50);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (1, 50);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (4, 51);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (4, 52);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (12, 53);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (12, 54);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (17, 55);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (17, 56);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (5, 57);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (5, 58);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (6, 59);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (6, 60);
+
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (17, 61);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (17, 62);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (17, 63);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (5, 63);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (14, 64);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (14, 65);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (14, 66);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (5, 67);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (5, 68);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (5, 69);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (9, 70);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (13, 70);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (9, 71);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (13, 71);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (9, 72);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (13, 72);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (17, 73);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (13, 73);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (13, 74);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (17, 74);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (10, 75);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (15, 75);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (10, 76);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (15, 76);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (10, 77);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (15, 77);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (6, 78);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (6, 79);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (14, 80);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (17, 80);
+
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (14, 81);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (17, 81);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (4, 82);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (4, 83);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (7, 84);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (12, 84);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (7, 85);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (12, 85);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (7, 86);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (12, 86);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (17, 87);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (17, 88);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (11, 88);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (13, 89);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (13, 90);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (17, 91);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (17, 92);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (11, 92);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (8, 93);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (13, 93);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (8, 94);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (13, 94);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (8, 95);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (13, 95);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (15, 96);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (10, 96);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (14, 97);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (14, 98);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (17, 99);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (17, 100);
+
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (4, 101);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (4, 101);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (9, 103);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (14, 103);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (9, 104);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (14, 104);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (4, 105);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (4, 106);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (5, 107);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (5, 108);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (12, 109);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (13, 110);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (13, 111);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (10, 112);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (15, 112);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (10, 113);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (15, 113);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (12, 114);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (9, 115);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (12, 116);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (17, 117);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (17, 118);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (17, 119);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (17, 120);
+
+
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (17, 121);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (14, 122);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (17, 122);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (14, 123);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (1, 124);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (7, 124);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (11, 125);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (14, 125);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (4, 126);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (6, 127);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (1, 128);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (12, 129);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (17, 130);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (17, 131);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (7, 131);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (11, 132);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (17, 132);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (12, 133);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (12, 134);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (17, 135);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (4, 136);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (6, 137);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (12, 138);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (15, 139);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (17, 139);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (17, 140);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (15, 140);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (15, 141);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (17, 141);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (15, 142);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (17, 142);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (15, 143);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (7, 143);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (7, 144);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (11, 144);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (12, 152);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (11, 145);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (7, 145);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (4, 145);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (7, 146);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (6, 146);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (3, 147);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (3, 148);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (3, 149);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (7, 149);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (14, 150);
+INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (14, 151);
