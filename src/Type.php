@@ -88,18 +88,6 @@
             return $found_type;
         }
 
-
-        // static function findTypeByName($search_name)
-        // {
-        //     $search_name = ucfirst(strtolower($search_name));
-        //     $types = Type::getAll();
-        //     foreach($types as $type){
-        //         if ($type->getName() == $search_name) {
-        //         }
-        //     }
-        //     return $type;
-        // }
-
         static function findTypeByName($search_name)
         {
             $found_type = null;
@@ -114,25 +102,30 @@
             return $found_type;
         }
 
-        // function getPokemon()
-        // {
-        //     $returned_pokemons = $GLOBALS['DB']->query("SELECT pokemons.* FROM pokedex
-        //         JOIN pokemons_types ON (types.id = types_pokemons.type_id)
-        //         JOIN pokemons ON (types_pokemons.pokemon_id = pokemons.id)
-        //         WHERE types.id = {$this->getId()};");
-        //     $pokemons = array();
-        //     foreach($returned_pokemons as $pokemon) {
-        //         $name = $pokemon['name'];
-        //         $dex_number = $pokemon['dex_number'];
-        //         $height_feet = $pokemon['height_feet'];
-        //         $height_inches = $pokemon['height_inches'];
-        //         $weight = $pokemon['weight'];
-        //         $id = $pokemon['id'];
-        //         $new_pokemon = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight, $id);
-        //         array_push($pokemons, $new_pokemon);
-        //     }
-        //     return $pokemons;
-        // }
+        function addPokemon($pokemon)
+        {
+            $GLOBALS['DB']->exec("INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES ({$this->getId()}, {$pokemon->getId()});");
+        }
+
+        function getPokemon()
+        {
+            $returned_pokemon = $GLOBALS['DB']->query("SELECT pokemon.* FROM types
+                JOIN pokemon_types ON (types.id = pokemon_types.type_id)
+                JOIN pokemon ON (pokemon_types.pokemon_id = pokemon.id)
+                WHERE types.id = {$this->getId()};");
+            $pokemons = array();
+            foreach($returned_pokemon as $pokemon) {
+                $name = $pokemon['name'];
+                $dex_number = $pokemon['dex_number'];
+                $height_feet = $pokemon['height_feet'];
+                $height_inches = $pokemon['height_inches'];
+                $weight = $pokemon['weight'];
+                $id = $pokemon['id'];
+                $new_pokemon = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight, $id);
+                array_push($pokemons, $new_pokemon);
+            }
+            return $pokemons;
+        }
     }
 
 ?>
