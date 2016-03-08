@@ -118,5 +118,28 @@
             $this->assertEquals([$test_pokemon, $test_pokemon2], $result);
         }
 
+        function test_searchName(){
+            $name = "Bulbasaur";
+            $dex_number = "001";
+            $height_feet = 2;
+            $height_inches = 04;
+            $weight = 15.2;
+            $test_pokemon = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight);
+            $test_pokemon->save();
+
+            $name2 = "Charmander";
+            $dex_number2 = "004";
+            $height_feet2 = 2;
+            $height_inches2 = 00;
+            $weight2 = 18.7;
+            $test_pokemon2 = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight);
+            $test_pokemon2->save();
+
+            $result = Pokemon::searchName($test_pokemon2->getName());
+
+            var_dump($result);
+
+            $this->assertEquals($test_pokemon2, $result);
+        }
     }
 ?>

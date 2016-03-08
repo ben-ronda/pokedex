@@ -6,6 +6,7 @@
         private $height_inches;
         private $weight;
         private $id;
+        // private $img;
 
         function __construct($name, $dex_number, $height_feet, $height_inches, $weight, $id = null){
             $this->name = $name;
@@ -13,6 +14,7 @@
             $this->height_feet = $height_feet;
             $this->height_inches = $height_inches;
             $this->weight = $weight;
+            // $this->img = $img;
             $this->id = $id;
         }
 
@@ -44,6 +46,19 @@
             $GLOBALS['DB']->exec("INSERT INTO pokemon (name, height_feet, height_inches, weight, dex_number)
             VALUES ('{$this->getName()}', {$this->getHeightFeet()}, {$this->getHeightInches()}, {$this->getWeight()}, '{$this->getDexNumber()}');");
             $this->id = $GLOBALS['DB']->lastInsertId();
+        }
+
+        static function searchName($search_name){
+            $found_pokemon = null;
+            $search_name = strtolower($search_name);
+            $all = Pokemon::getAll();
+            foreach($all as $pokemon){
+                $name = strtolower($pokemon->getName());
+                if($name == $search_name){
+                    $found_pokemon = $pokemon;
+                }
+            }
+            return $found_pokemon;
         }
 
         static function getAll(){
