@@ -3,33 +3,40 @@
     {
         private $name;
         private $weakness;
+        private $strength;
         private $id;
 
-        function __construct($name, $weakness, $id = null)
+        function __construct($name, $weakness, $strength, $id = null)
         {
             $this->name = $name;
             $this->weakness = $weakness;
+            $this->strength = $strength;
             $this->id = $id;
         }
 
-        function setName($name)
-        {
-            $this->name = $name;
-        }
+        // function setName($name)
+        // {
+        //     $this->name = $name;
+        // }
 
         function getName()
         {
             return $this->name;
         }
 
-        function setWeakness($weakness)
-        {
-            $this->weakness = $weakness;
-        }
+        // function setWeakness($weakness)
+        // {
+        //     $this->weakness = $weakness;
+        // }
 
         function getWeakness()
         {
             return $this->weakness;
+        }
+
+        function getStrength()
+        {
+            return $this->strength;
         }
 
         function getId()
@@ -39,7 +46,7 @@
 
         function save()
         {
-          $GLOBALS['DB']->exec("INSERT INTO types (name, weakness) VALUES ('{$this->getName()}', '{$this->getWeakness()}');");
+          $GLOBALS['DB']->exec("INSERT INTO types (name, weakness, strength) VALUES ('{$this->getName()}', '{$this->getWeakness()}', '{$this->getStrength()}');");
           $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
@@ -50,8 +57,9 @@
             foreach($returned_types as $type) {
                 $name = $type['name'];
                 $weakness = $type['weakness'];
+                $strength = $type['strength'];
                 $id = $type['id'];
-                $new_type = new Type($name, $weakness, $id);
+                $new_type = new Type($name, $weakness, $strength, $id);
                 array_push($types, $new_type);
             }
             return $types;
@@ -79,62 +87,52 @@
             }
             return $found_type;
         }
-        //need to figure this out still for partial/misspelled
+
+
         // static function findTypeByName($search_name)
         // {
         //     $search_name = ucfirst(strtolower($search_name));
-        //     $query = $GLOBALS['DB']->query("SELECT * FROM types WHERE soundex(name) = soundex('{$search_name}');");
-        //     $type = $query->fetchAll(PDO::FETCH_ASSOC);
-        //     $name = $type['name'];
-        //     $weakness = $type['weakness'];
-        //     $id = $type['id'];
-        //     $new_type = new Type($name, $weakness, $id);
-        //     if ($new_type->getName() == $search_name) {
-        //       return $new_type;
+        //     $types = Type::getAll();
+        //     foreach($types as $type){
+        //         if ($type->getName() == $search_name) {
+        //         }
         //     }
+        //     return $type;
         // }
 
         static function findTypeByName($search_name)
         {
+            $found_type = null;
+            $search_name = ucfirst(strtolower($search_name));
             $types = Type::getAll();
-            foreach($types as $type){
-                if (soundex($type->getName()) == soundex($search_name)) {
+            foreach($types as $type) {
+            $type_name = $type->getName();
+                if ($type_name == $search_name) {
+                $found_type = $type;
                 }
             }
-            return $type;
-      }
-
-        function updateTypeName($new_name)
-        {
-            $GLOBALS['DB']->exec("UPDATE types SET name = '{$new_name}' WHERE id = {$this->getId()};");
-            $this->setName($new_name);
+            return $found_type;
         }
 
-        function updateTypeWeakness($new_weakness)
-        {
-            $GLOBALS['DB']->exec("UPDATE types SET weakness = '{$new_weakness}' WHERE id = {$this->getId()};");
-            $this->setWeakness($new_weakness);
-        }
-
-        function getPokemon()
-        {
-            $returned_pokemons = $GLOBALS['DB']->query("SELECT pokemons.* FROM pokedex
-                JOIN pokemons_types ON (types.id = types_pokemons.type_id)
-                JOIN pokemons ON (types_pokemons.pokemon_id = pokemons.id)
-                WHERE types.id = {$this->getId()};");
-            $pokemons = array();
-            foreach($returned_pokemons as $pokemon) {
-                $name = $pokemon['name'];
-                $dex_number = $pokemon['dex_number'];
-                $height_feet = $pokemon['height_feet'];
-                $height_inches = $pokemon['height_inches'];
-                $weight = $pokemon['weight'];
-                $id = $pokemon['id'];
-                $new_pokemon = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight, $id);
-                array_push($pokemons, $new_pokemon);
-            }
-            return $pokemons;
-        }
+        // function getPokemon()
+        // {
+        //     $returned_pokemons = $GLOBALS['DB']->query("SELECT pokemons.* FROM pokedex
+        //         JOIN pokemons_types ON (types.id = types_pokemons.type_id)
+        //         JOIN pokemons ON (types_pokemons.pokemon_id = pokemons.id)
+        //         WHERE types.id = {$this->getId()};");
+        //     $pokemons = array();
+        //     foreach($returned_pokemons as $pokemon) {
+        //         $name = $pokemon['name'];
+        //         $dex_number = $pokemon['dex_number'];
+        //         $height_feet = $pokemon['height_feet'];
+        //         $height_inches = $pokemon['height_inches'];
+        //         $weight = $pokemon['weight'];
+        //         $id = $pokemon['id'];
+        //         $new_pokemon = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight, $id);
+        //         array_push($pokemons, $new_pokemon);
+        //     }
+        //     return $pokemons;
+        // }
     }
 
 ?>

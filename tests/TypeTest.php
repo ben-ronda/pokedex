@@ -27,8 +27,9 @@
             //Arrange
             $name = "Fire";
             $weakness = "Water";
+            $strength = "Grass";
             $id = null;
-            $test_type = new Type($name, $weakness, $id);
+            $test_type = new Type($name, $weakness, $strength, $id);
             $test_type->save();
 
             //Act
@@ -41,24 +42,26 @@
         function testGetAll()
         {
             //Arrange
-            $name = "Water";
-            $weakness = "Electric";
+            $name = "Fire";
+            $weakness = "Water";
+            $strength = "Grass";
             $id = null;
 
             $name2 = "Ground";
             $weakness2 = "Water";
+            $strength2 = "Fire";
             $id2 = null;
 
-            $test_type = new Type($name, $weakness, $id);
+            $test_type = new Type($name, $weakness, $strength, $id);
             $test_type->save();
-            $test_type2 = new Type($name2, $weakness2, $id);
+            $test_type2 = new Type($name2, $weakness2, $strength2, $id);
             $test_type2->save();
 
             //Act
             $result = Type::getAll();
 
             //Assert
-            $this->assertEquals([$test_type2, $test_type], $result);
+            $this->assertEquals([$test_type, $test_type2], $result);
         }
 
         function testDeleteAll()
@@ -66,15 +69,17 @@
             //Arrange
             $name = "Fire";
             $weakness = "Water";
+            $strength = "Grass";
             $id = null;
 
             $name2 = "Ground";
             $weakness2 = "Water";
+            $strength2 = "Fire";
             $id2 = null;
 
-            $test_type = new Type($name, $weakness, $id);
+            $test_type = new Type($name, $weakness, $strength, $id);
             $test_type->save();
-            $test_type2 = new Type($name2, $weakness2, $id);
+            $test_type2 = new Type($name2, $weakness2, $strength2, $id);
             $test_type2->save();
 
             //Act
@@ -85,54 +90,22 @@
             $this->assertEquals([], $result);
         }
 
-        function testUpdateTypeName()
-        {
-            //Arrange
-            $name = "Fire";
-            $weakness = "Water";
-            $id = null;
-            $test_type = new Type($name, $weakness, $id);
-            $test_type->save();
-            $new_name = "Electric";
-
-            //Act
-            $test_type->updateTypeName($new_name);
-
-            //Assert
-            $this->assertEquals("Electric", $test_type->getName());
-        }
-
-        function testUpdateTypeWeakness()
-        {
-            //Arrange
-            $name = "Fire";
-            $weakness = "Water";
-            $id = null;
-            $test_type = new Type($name, $weakness, $id);
-            $test_type->save();
-            $new_type = "Ground";
-
-            //Act
-            $test_type->updateTypeWeakness($new_type);
-
-            //Assert
-            $this->assertEquals("Ground", $test_type->getWeakness());
-        }
-
         function testDeleteType()
         {
             //Arrange
             $name = "Fire";
             $weakness = "Water";
+            $strength = "Grass";
             $id = null;
 
             $name2 = "Ground";
             $weakness2 = "Water";
+            $strength2 = "Fire";
             $id2 = null;
 
-            $test_type = new Type($name, $weakness, $id);
+            $test_type = new Type($name, $weakness, $strength, $id);
             $test_type->save();
-            $test_type2 = new Type($name2, $weakness2, $id);
+            $test_type2 = new Type($name2, $weakness2, $strength2, $id);
             $test_type2->save();
 
             //Act
@@ -147,15 +120,17 @@
             //Arrange
             $name = "Fire";
             $weakness = "Water";
+            $strength = "Grass";
             $id = null;
 
             $name2 = "Ground";
             $weakness2 = "Water";
+            $strength2 = "Fire";
             $id2 = null;
 
-            $test_type = new Type($name, $weakness, $id);
+            $test_type = new Type($name, $weakness, $strength, $id);
             $test_type->save();
-            $test_type2 = new Type($name2, $weakness2, $id);
+            $test_type2 = new Type($name2, $weakness2, $strength2, $id);
             $test_type2->save();
 
             //Act
@@ -170,44 +145,20 @@
             //Arrange
             $name = "Fire";
             $weakness = "Water";
+            $strength = "Grass";
             $id = null;
 
             $name2 = "Ground";
             $weakness2 = "Water";
+            $strength2 = "Fire";
             $id2 = null;
 
-            $test_type = new Type($name, $weakness, $id);
+            $test_type = new Type($name, $weakness, $strength, $id);
             $test_type->save();
-            $test_type2 = new Type($name2, $weakness2, $id);
+            $test_type2 = new Type($name2, $weakness2, $strength2, $id);
             $test_type2->save();
-
             //Act
             $result = Type::findTypeByName("fIrE");
-
-            //Assert
-            $this->assertEquals($test_type, $result);
-        }
-
-        function testFindTypeByPartial()
-        {
-            //Arrange
-            $name = "Fire";
-            $weakness = "Water";
-            $id = null;
-
-            $name2 = "Ground";
-            $weakness2 = "Water";
-            $id = null;
-
-            $test_type = new Type($name, $weakness, $id);
-            $test_type->save();
-            $test_type2 = new Type($name2, $weakness2, $id);
-            $test_type2->save();
-
-
-            //Act
-            $result = Type::findTypeByName("frie");
-
 
             //Assert
             $this->assertEquals($test_type, $result);
