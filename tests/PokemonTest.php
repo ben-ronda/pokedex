@@ -136,9 +136,7 @@
             $test_pokemon2->save();
 
             $result = Pokemon::searchName($test_pokemon2->getName());
-            var_dump($test_pokemon2);
-            var_dump($result);
-
+             
             $this->assertEquals([$test_pokemon2], $result);
         }
     }
