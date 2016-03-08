@@ -41,8 +41,8 @@
         function testGetAll()
         {
             //Arrange
-            $name = "Fire";
-            $weakness = "Water";
+            $name = "Water";
+            $weakness = "Electric";
             $id = null;
 
             $name2 = "Ground";
@@ -58,7 +58,7 @@
             $result = Type::getAll();
 
             //Assert
-            $this->assertEquals([$test_type, $test_type2], $result);
+            $this->assertEquals([$test_type2, $test_type], $result);
         }
 
         function testDeleteAll()
@@ -142,7 +142,7 @@
             $this->assertEquals([$test_type2], Type::getAll());
         }
 
-        function testFindType()
+        function testFindTypeById()
         {
             //Arrange
             $name = "Fire";
@@ -159,32 +159,60 @@
             $test_type2->save();
 
             //Act
-            $result = Type::findType($test_type->getId());
+            $result = Type::findTypeById($test_type->getId());
 
             //Assert
             $this->assertEquals($test_type, $result);
         }
 
-
-        function getPokemon()
+        function testFindTypeByName()
         {
-            $returned_pokemons = $GLOBALS['DB']->query("SELECT pokemons.* FROM pokedex
-                JOIN pokemons_types ON (types.id = types_pokemons.type_id)
-                JOIN pokemons ON (types_pokemons.pokemon_id = pokemons.id)
-                WHERE types.id = {$this->getId()};");
-            $pokemons = array() ;
-            foreach($returned_pokemons as $pokemon) {
-                $name = $pokemon['name'];
-                $dex_number = $pokemon['dex_number'];
-                $height_feet = $pokemon['height_feet'];
-                $height_inches = $pokemon['height_inches'];
-                $weight = $pokemon['weight'];
-                $id = $pokemon['id'];
-                $new_pokemon = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight, $id);
-                array_push($pokemons, $new_pokemon);
-            }
-            return $pokemons;
+            //Arrange
+            $name = "Fire";
+            $weakness = "Water";
+            $id = null;
+
+            $name2 = "Ground";
+            $weakness2 = "Water";
+            $id2 = null;
+
+            $test_type = new Type($name, $weakness, $id);
+            $test_type->save();
+            $test_type2 = new Type($name2, $weakness2, $id);
+            $test_type2->save();
+
+            //Act
+            $result = Type::findTypeByName("fIrE");
+
+            //Assert
+            $this->assertEquals($test_type, $result);
         }
+
+        function testFindTypeByPartial()
+        {
+            //Arrange
+            $name = "Fire";
+            $weakness = "Water";
+            $id = null;
+
+            $name2 = "Ground";
+            $weakness2 = "Water";
+            $id = null;
+
+            $test_type = new Type($name, $weakness, $id);
+            $test_type->save();
+            $test_type2 = new Type($name2, $weakness2, $id);
+            $test_type2->save();
+
+
+            //Act
+            $result = Type::findTypeByName("frie");
+
+
+            //Assert
+            $this->assertEquals($test_type, $result);
+        }
+
     }
 
 ?>
