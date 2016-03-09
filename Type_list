@@ -1,3 +1,5 @@
+//Type table data
+
 INSERT INTO types (name, weakness, strength) VALUES ('Bug', 'Fire, Flying, Rock', 'Grass, Psychic);
 
 INSERT INTO types (name, weakness, strength) VALUES ('Dragon', 'Dragon, Ice', 'Dragon');
@@ -30,6 +32,7 @@ INSERT INTO types (name, weakness, strength) VALUES ('Rock', 'Fighting, Grass, G
 INSERT INTO types (name, weakness, strength) VALUES ('Water', 'Electric, Ground, Rock', 'Fire, Ground Rock');
 
 
+//Join table data
 
 INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (9, 2);
 INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES (13, 2);
