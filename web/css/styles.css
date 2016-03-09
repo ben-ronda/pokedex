@@ -1,0 +1,11 @@
+body {
+  background-color: #ffffe7;
+  color: #325682;
+  font-size: 18px;
+  font-family: 'Kurale', serif;
+}
+
+.pokemon {
+  width: 200px;
+  height: auto;
+}
