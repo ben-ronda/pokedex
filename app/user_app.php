@@ -22,6 +22,7 @@
             } else {
                 $new_user = new User($username, $password, $id);
                 $new_user->save();
+                return $app['twig']->render('login.html.twig')
             }
 
 
