@@ -14,20 +14,11 @@
             $this->id = $id;
         }
 
-        // function setName($name)
-        // {
-        //     $this->name = $name;
-        // }
-
         function getName()
         {
             return $this->name;
         }
 
-        // function setWeakness($weakness)
-        // {
-        //     $this->weakness = $weakness;
-        // }
 
         function getWeakness()
         {

@@ -9,13 +9,19 @@
       <ul>
         {% for pokemon in pokemons %}
           <li>{{ pokemon.getName }}</li>
+          {% for type in pokemon.getTypes %}
+          <li>{{ type.getName }}</li>
+          <li>Weak against: {{ type.getWeakness }}</li>
+          <li>Strong against: {{ type.getStrength }}</li>
+          {% endfor %}
           <ul>
             <li>{{ pokemon.getDexNumber }}</li>
             <li>{{ pokemon.getHeightFeet }} ft {{ pokemon.HeightInches}} inches</li>
-            <li>{{ pokemon.getWeight }}</li>
-            <li><img src="{{ pokemon.getImagePath }}"/></li>
+            <li>{{ pokemon.getWeight }} pounds</li>
+            <img class="pokemon" src="{{ pokemon.getImagePath }}"/>
           </ul>
         {% endfor %}
+      </ul>
     {% endif %}
   </body>
 </html>
