@@ -8,18 +8,16 @@
     {% if pokemons is not empty %}
       <ul>
         {% for pokemon in pokemons %}
-          <li>{{ pokemon.getName }}</li>
+          <li>Name: {{ pokemon.getName }}</li>
           {% for type in pokemon.getTypes %}
-          <li>{{ type.getName }}</li>
-          <li>Weak against: {{ type.getWeakness }}</li>
-          <li>Strong against: {{ type.getStrength }}</li>
+            Type: {{ type.getName }}<br>
+          Weak against: {{ type.getWeakness }}<br>
+          Strong against: {{ type.getStrength }}<br>
           {% endfor %}
-          <ul>
-            <li>{{ pokemon.getDexNumber }}</li>
-            <li>{{ pokemon.getHeightFeet }} ft {{ pokemon.HeightInches}} inches</li>
-            <li>{{ pokemon.getWeight }} pounds</li>
-            <img class="pokemon" src="{{ pokemon.getImagePath }}"/>
-          </ul>
+            <li>Dex Number: {{ pokemon.getDexNumber }}</li>
+            <li>Size: {{ pokemon.getHeightFeet }} ft {{ pokemon.HeightInches}} inches</li>
+            <li>Weight: {{ pokemon.getWeight }} pounds</li>
+            <img class="pokemon" src="{{ pokemon.getImagePath }}"/><br>
         {% endfor %}
       </ul>
     {% endif %}
