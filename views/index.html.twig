@@ -8,10 +8,23 @@
     <div class="jumbotron">
       <img class="title" src="/images/pokemonTitle.png"/>
     </div>
-    {% if pokemons is not empty %}
-      <ul>
-        {% for pokemon in pokemons %}
-          <li>Name: {{ pokemon.getName }}</li>
+    <div class="container">
+      <div class="row">
+      {% for pokemon in pokemons %}
+        <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <img class="pokemon" src="{{ pokemon.getImagePath }}"/>
+            <div class="caption">
+              <h3>{{ pokemon.getName }}</h3>
+              <p>Dex Number: {{ pokemon.getDexNumber }}</p>
+              <p><a href="/types" class="btn btn-primary" role="button">Show more</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+          <!-- <li>Name: {{ pokemon.getName }}</li>
           {% for type in pokemon.getTypes %}
             Type: {{ type.getName }}<br>
           Weak against: {{ type.getWeakness }}<br>
@@ -20,9 +33,9 @@
             <li>Dex Number: {{ pokemon.getDexNumber }}</li>
             <li>Size: {{ pokemon.getHeightFeet }} ft {{ pokemon.HeightInches}} inches</li>
             <li>Weight: {{ pokemon.getWeight }} pounds</li>
-            <img class="pokemon" src="{{ pokemon.getImagePath }}"/><br>
+            <img class="pokemon" src="{{ pokemon.getImagePath }}"/><br> -->
         {% endfor %}
-      </ul>
-    {% endif %}
+
+    </div>
   </body>
 </html>

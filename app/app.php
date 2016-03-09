@@ -25,5 +25,16 @@
         return $app['twig']->render('index.html.twig', array('types'=>Type::getAll(), 'pokemons'=>Pokemon::getALl()));
     });
 
+    $app->get("/types", function() use ($app)
+    {
+        return $app['twig']->render('type.html.twig', array('types'=>Type::getAll()));
+    });
+
+    $app->get("/type/{id}", function($id) use ($app)
+    {
+        $type = Type::findTypeById($id);
+        return $app['twig']->render('onetype.html.twig', array('type' => $type, 'types'=>Type::getAll(), 'pokemons'=>Pokemon::getALl()));
+    });
+
     return $app;
 ?>
