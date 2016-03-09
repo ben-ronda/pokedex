@@ -80,7 +80,6 @@
             return $found_user;
         }
 
-
         function addPokemon($pokemon)
         {
             $GLOBALS['DB']->exec("INSERT INTO pokemon_users (pokemon_id, user_id)  VALUES ({$pokemon->getId()}, {$this->getId()});");
