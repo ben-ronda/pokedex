@@ -66,7 +66,7 @@
             $GLOBALS['DB']->exec("DELETE FROM types WHERE id = {$this->getId()};");
         }
 
-         static function findTypeById($search_id)
+        static function findTypeById($search_id)
         {
             $found_type = null;
             $types = Type::getAll();

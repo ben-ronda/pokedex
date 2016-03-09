@@ -114,5 +114,18 @@
         static function deleteAll(){
             $GLOBALS['DB']->exec("DELETE FROM pokemon;");
         }
+
+        static function findPokemon($search_id)
+       {
+           $found_pokemon = null;
+           $pokemons = Pokemon::getAll();
+           foreach($pokemons as $pokemon) {
+               $pokemon_id = $pokemon->getId();
+               if ($pokemon_id == $search_id) {
+                   $found_pokemon = $pokemon;
+               }
+           }
+           return $found_pokemon;
+       }
     }
 ?>

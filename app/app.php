@@ -33,7 +33,13 @@
     $app->get("/type/{id}", function($id) use ($app)
     {
         $type = Type::findTypeById($id);
-        return $app['twig']->render('onetype.html.twig', array('type' => $type, 'types'=>Type::getAll(), 'pokemons'=>Pokemon::getALl()));
+        return $app['twig']->render('onetype.html.twig', array('type' => $type, 'types'=>Type::getAll(), 'pokemons'=>Pokemon::getAll()));
+    });
+
+    $app->get("/pokemon/{id}", function($id) use ($app)
+    {
+        $pokemon = Pokemon::findPokemon($id);
+        return $app['twig']->render('onepokemon.html.twig', array('pokemon'=>$pokemon, 'types'=>Type::getAll(), 'pokemons'=>Pokemon::getAll()));
     });
 
     return $app;
