@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% include '/includes/head.html.twig' %}
+    <title>Pokedex</title>
+  </head>
+  <body>
+    <div class="jumbotron">
+      <img class="title" src="/images/pokemonTitle.png"/>
+    </div>
+    <div class="container">
+
+        <h1 class="type-item">{{ type.getName }}</a></h1>
+        <li class="type-item"><span class="bold">Strong Against:</span> {{ type.getStrength }}</li>
+        <li class="type-item"><span class="bold">Weak Against:</span> {{ type.getWeakness }}</li>
+        {% for pokemon in type.getPokemon %}
+            <h3><a href="/pokemon/{{ pokemon.getId }}">{{ pokemon.getName }}</a></h3>
+            <img src='{{ pokemon.getImagePath }}' class="pokemon"/>
+          {% endfor %}
+    </div>
+  </body>
+</html>

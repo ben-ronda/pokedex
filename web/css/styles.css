@@ -6,6 +6,22 @@ body {
 }
 
 .pokemon {
-  width: 200px;
-  height: auto;
+  width: 300px;
+  height: 250px;
+}
+
+.title {
+  height: 200px;
+  width: auto;
+}
+
+.bold
+{
+  font-weight: bold;
+}
+
+.pokeball
+{
+  width: 50px;
+  width: 50px;
 }

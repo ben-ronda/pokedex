@@ -66,7 +66,7 @@
             $GLOBALS['DB']->exec("DELETE FROM types WHERE id = {$this->getId()};");
         }
 
-         static function findTypeById($search_id)
+        static function findTypeById($search_id)
         {
             $found_type = null;
             $types = Type::getAll();
@@ -111,8 +111,9 @@
                 $height_feet = $pokemon['height_feet'];
                 $height_inches = $pokemon['height_inches'];
                 $weight = $pokemon['weight'];
+                $img = $pokemon['img'];
                 $id = $pokemon['id'];
-                $new_pokemon = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight, $id);
+                $new_pokemon = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight, $img, $id);
                 array_push($pokemons, $new_pokemon);
             }
             return $pokemons;
@@ -134,8 +135,9 @@
                 $height_feet = $pokemon['height_feet'];
                 $height_inches = $pokemon['height_inches'];
                 $weight = $pokemon['weight'];
+                $img = $pokemon['img'];
                 $id = $pokemon['id'];
-                $new_pokemon = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight, $id);
+                $new_pokemon = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight, $img, $id);
                 array_push($type1_matches, $new_pokemon);
             }
 
@@ -150,6 +152,7 @@
                 $height_feet = $pokemon['height_feet'];
                 $height_inches = $pokemon['height_inches'];
                 $weight = $pokemon['weight'];
+                $img = $pokemon['img'];
                 $id = $pokemon['id'];
                 $new_pokemon = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight, $id);
                 array_push($type2_matches, $new_pokemon);

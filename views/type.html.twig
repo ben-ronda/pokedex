@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% include '/includes/head.html.twig' %}
+    <title>Pokedex</title>
+  </head>
+  <body>
+    <div class="jumbotron">
+      <img class="title" src="/images/pokemonTitle.png"/>
+    </div>
+    <div class="container">
+    {% if types|length  %}
+    {% set typesPerColumn = (types|length / 3)|round(0, 'ceil') %}
+
+    {% for type in types %}
+
+        {% if typesPerColumn == 1 or loop.index % typesPerColumn == 1 %}
+            <div class="col-md-4">
+                <ul>
+        {% endif %}
+
+                    <h1 class="type-item"><a href="/type/{{ type.getId }}">{{ type.getName }}</a></h1>
+                    <li class="type-item"><span class="bold">Strong Against:</span> {{ type.getStrength }}</li>
+                    <li class="type-item"><span class="bold">Weak Against:</span> {{ type.getWeakness }}</li>
+
+        {% if loop.last or loop.index % typesPerColumn == 0 %}
+                </ul>
+            </div>
+        {% endif %}
+    {% endfor %}
+    {% endif %}
+    </div>
+  </body>
+</html>
