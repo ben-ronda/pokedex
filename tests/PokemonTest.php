@@ -5,6 +5,7 @@
     */
 
     require_once "src/Pokemon.php";
+    require_once "src/Type.php";
 
     $server = 'mysql:host=localhost;dbname=pokedex_test';
     $username = 'root';
@@ -136,8 +137,33 @@
             $test_pokemon2->save();
 
             $result = Pokemon::searchName($test_pokemon2->getName());
-             
+
             $this->assertEquals([$test_pokemon2], $result);
+        }
+
+        function test_getTypes(){
+            $name2 = "Charmander";
+            $dex_number2 = "004";
+            $height_feet2 = 2;
+            $height_inches2 = 00;
+            $weight2 = 18.7;
+            $test_pokemon2 = new Pokemon($name2, $dex_number2, $height_feet2, $height_inches2, $weight2);
+            $test_pokemon2->save();
+
+            $name = "Fire";
+            $weakness = "Water";
+            $strength = "Grass";
+            $id = null;
+            $test_type = new Type($name, $weakness, $strength, $id);
+            $test_type->save();
+
+            $test_pokemon2->addTypes($test_type);
+
+            $result = $test_pokemon2->getTypes();
+
+            // var_dump($result);
+
+            $this->assertEquals([$test_type], $result);
         }
     }
 ?>

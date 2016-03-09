@@ -46,6 +46,28 @@
         //     return $this->img;
         // }
 
+        function getTypes(){
+            $returned_types = $GLOBALS['DB']->query("SELECT types.* FROM pokemon
+                JOIN pokemon_types ON (pokemon.id = pokemon_types.pokemon_id)
+                JOIN types ON (pokemon_types.type_id = types.id)
+                WHERE pokemon.id = {$this->getId()};");
+
+            $types = array();
+            foreach($returned_types as $type){
+                $name = $type['name'];
+                $weakness = $type['weakness'];
+                $strength = $type['strength'];
+                $id = $type['id'];
+                $new_type = new Type($name, $weakness, $strength, $id);
+                array_push($types, $new_type);
+            }
+            return $types;
+        }
+
+        function addTypes($type)
+        {
+            $GLOBALS['DB']->exec("INSERT INTO pokemon_types (type_id, pokemon_id)  VALUES ({$type->getId()}, {$this->getId()});");
+        }
 
         function save(){
             $GLOBALS['DB']->exec("INSERT INTO pokemon (name, height_feet, height_inches, weight, dex_number)
