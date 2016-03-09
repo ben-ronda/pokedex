@@ -1,12 +1,32 @@
 <?php
     require('db.php');
 
+    session_start();
+
     $app->get("/register", function() use ($app) {
 				return $app['twig']->render('registration.html.twig');
 		});
 
     $app->post("/register", function() use ($app)
     {
+        $username = $_POST['new_username'];
+        $username = stripslashes($username);
+        $username = mysql_real_escape_string($username);
+        $password = $POST['new_email'];
+        $password = stripslashes($password);
+        $password = mysql_real_escape_string($password);
+        $users = User::getAll();
+        foreach($users as $user) {
+            if($username == $user->getName()) {
+              return $app['twig']->render('registration.html.twig', array('failed_register' => 'That username already exists. Please choose another.'))
+            } else {
+                $new_user = new User($username, $password, $id);
+                $new_user->save();
+            }
+
+
+        }
+    }
         if (isset($_POST['username'])) {
             $username = $_POST['username'];
             $email = $_POST['email'];
@@ -19,6 +39,7 @@
             $password = mysql_real_escape_string($password);
             $new_user = new User($username, $password, $email, $id);
             $new_user->save();
+
             if($result){
             echo "<div class='form'><h3>You are registered successfully.</h3><br/>Click here to <a href='login.php'>Login</a></div>";
             }

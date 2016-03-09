@@ -75,6 +75,15 @@
             $GLOBALS['DB']->exec("DELETE FROM users;");
         }
 
+        function userExists($username)
+        {
+          $users = User::getAll();
+          foreach($users as $user) {
+              if($user !== $username) {
+                $user->save();
+              }
+        }
+
         function deleteUser()
         {
             $GLOBALS['DB']->exec("DELETE FROM users WHERE id = {$this->getId()};");
@@ -87,6 +96,19 @@
             foreach($users as $user) {
                 $user_id = $user->getId();
                 if ($user_id == $search_id) {
+                    $found_user = $user;
+                }
+            }
+            return $found_user;
+        }
+
+         static function findUserByName($search_name)
+        {
+            $found_user = null;
+            $users = User::getAll();
+            foreach($users as $user) {
+                $user_name = $user->getName();
+                if ($user_name == $search_name) {
                     $found_user = $user;
                 }
             }

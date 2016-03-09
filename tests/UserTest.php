@@ -141,6 +141,30 @@
             $this->assertEquals($test_user, $result);
         }
 
+        function testFindUserByName()
+        {
+            //Arrange
+            $username = "bpopson";
+            $password = "poke-fish";
+            $email = "poke@pokemon.com"
+            $id = null;
+            $test_user = new User($username, $password, $email, $id);
+            $test_user->save();
+
+            $username2 = "aaike001";
+            $password2 = "pokepoke";
+            $email2 = "poke2@pokemon.com"
+            $id = null;
+            $test_user2 = new User($username2, $password2, $email2, $id);
+            $test_user2->save();
+
+            //Act
+            $result = User::findUserByName($test_user->getName());
+
+            //Assert
+            $this->assertEquals($test_user, $result);
+        }
+
 
           function testGetPokemon()
           {
