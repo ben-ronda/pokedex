@@ -1,14 +1,15 @@
 body {
   background-color: #ffffe7;
-  color: #325682;
+  color: #355AAA;
   font-size: 18px;
-  font-family: 'Kurale', serif;
+  font-family: 'VT323', ;
+  background-color: #908F8F;
 }
 
-.pokemon {
-  width: 300px;
-  height: 250px;
+.jumbotron {
+  background-color: #313131;
 }
+
 
 .title {
   height: 200px;
@@ -20,8 +21,12 @@ body {
   font-weight: bold;
 }
 
-.pokeball
-{
+.pokeball {
   width: 50px;
   width: 50px;
 }
+/*add blue text shadow to yellow font like pokemon title
+a {
+  color: #FFCB05;
+  text-shadow: -3px -2px #355AAA;
+}*/
