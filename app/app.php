@@ -42,5 +42,18 @@
         return $app['twig']->render('onepokemon.html.twig', array('pokemon'=>$pokemon, 'types'=>Type::getAll(), 'pokemons'=>Pokemon::getAll()));
     });
 
+    $app->get("/user/{id}", function($id) use ($app)
+    {
+        $user = User::findUserById($id);
+        return $app['twig']->render('user.html.twig', array('pokemon'=>$pokemon, 'types'=>Type::getAll(), 'pokemons'=>Pokemon::getAll()));
+    });
+
+    $app->post("/add_pokemon", function() use ($app) {
+        $pokemon = Pokemon::findPokemon($_POST['pokemon_id']);
+        $user = User::findUser($_POST['user_id']);
+        $user->addPokemon($pokemon);
+        return $app['twig']->render('user.html.twig', array('user' => $user, 'users' => User::getAll(), 'pokemons'=>$user->getPokemons(), 'all_pokemons'=> Pokemon::getAll()));
+    });
+
     return $app;
 ?>
