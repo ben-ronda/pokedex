@@ -3,12 +3,14 @@
     {
         private $username;
         private $password;
+        private $email;
         private $id;
 
-        function __construct($username, $password, $id = null)
+        function __construct($username, $password, $email, $id = null)
         {
             $this->username = $username;
             $this->password = $password;
+            $this->email = $email;
             $this->id = $id;
         }
 
@@ -32,6 +34,16 @@
             return $this->password;
         }
 
+        function setEmail($email)
+        {
+            $this->email = $email;
+        }
+
+        function getEmail()
+        {
+            return $this->email;
+        }
+
         function getId()
         {
             return $this->id;
@@ -39,7 +51,7 @@
 
         function save()
         {
-          $GLOBALS['DB']->exec("INSERT INTO users (username, password) VALUES ('{$this->getUsername()}', '{$this->getPassword()}');");
+          $GLOBALS['DB']->exec("INSERT INTO users (username, password, email) VALUES ('{$this->getUsername()}', '".md5({$this->getPassword()})", {$this->getEmail()});");
           $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
@@ -50,8 +62,9 @@
             foreach($returned_users as $user) {
                 $username = $user['username'];
                 $password = $user['password'];
+                $email = $user['email'];
                 $id = $user['id'];
-                $new_user = new User($username, $password, $id);
+                $new_user = new User($username, $password, $email, $id);
                 array_push($users, $new_user);
             }
             return $users;
@@ -60,6 +73,15 @@
         static function deleteAll()
         {
             $GLOBALS['DB']->exec("DELETE FROM users;");
+        }
+
+        function userExists($username)
+        {
+          $users = User::getAll();
+          foreach($users as $user) {
+              if($user !== $username) {
+                $user->save();
+              }
         }
 
         function deleteUser()
@@ -74,6 +96,19 @@
             foreach($users as $user) {
                 $user_id = $user->getId();
                 if ($user_id == $search_id) {
+                    $found_user = $user;
+                }
+            }
+            return $found_user;
+        }
+
+         static function findUserByName($search_name)
+        {
+            $found_user = null;
+            $users = User::getAll();
+            foreach($users as $user) {
+                $user_name = $user->getName();
+                if ($user_name == $search_name) {
                     $found_user = $user;
                 }
             }

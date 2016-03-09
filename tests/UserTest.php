@@ -32,8 +32,9 @@
             //Arrange
             $username = "bpopson@gmail.com";
             $password = "poke-fish";
+            $email = "poke@pokemon.com"
             $id = null;
-            $test_user = new User($username, $password, $id);
+            $test_user = new User($username, $password, $email, $id);
             $test_user->save();
 
             //Act
@@ -46,16 +47,18 @@
         function testGetAll()
         {
             //Arrange
-            $username = "bpopson@gmail.com";
+            $username = "bpopson";
             $password = "poke-fish";
+            $email = "poke@pokemon.com"
             $id = null;
-            $test_user = new User($username, $password, $id);
+            $test_user = new User($username, $password, $email, $id);
             $test_user->save();
 
-            $username2 = "aaike001@gmail.com";
+            $username2 = "aaike001";
             $password2 = "pokepoke";
+            $email2 = "poke2@pokemon.com"
             $id = null;
-            $test_user2 = new User($username2, $password2, $id);
+            $test_user2 = new User($username2, $password2, $email2, $id);
             $test_user2->save();
 
             //Act
@@ -68,16 +71,18 @@
         function testDeleteAll()
         {
             //Arrange
-            $username = "bpopson@gmail.com";
+            $username = "bpopson";
             $password = "poke-fish";
+            $email = "poke@pokemon.com"
             $id = null;
-            $test_user = new User($username, $password, $id);
+            $test_user = new User($username, $password, $email, $id);
             $test_user->save();
 
-            $username2 = "aaike001@gmail.com";
+            $username2 = "aaike001";
             $password2 = "pokepoke";
+            $email2 = "poke2@pokemon.com"
             $id = null;
-            $test_user2 = new User($username2, $password2, $id);
+            $test_user2 = new User($username2, $password2, $email2, $id);
             $test_user2->save();
 
             //Act
@@ -91,15 +96,18 @@
         function testDeleteUser()
         {
             //Arrange
-            $username = "bpopson@gmail.com";
+            $username = "bpopson";
             $password = "poke-fish";
+            $email = "poke@pokemon.com"
             $id = null;
-            $test_user = new User($username, $password, $id);
+            $test_user = new User($username, $password, $email, $id);
             $test_user->save();
 
-            $username2 = "aaike001@gmail.com";
+            $username2 = "aaike001";
             $password2 = "pokepoke";
-            $test_user2 = new User($username2, $password2, $id);
+            $email2 = "poke2@pokemon.com"
+            $id = null;
+            $test_user2 = new User($username2, $password2, $email2, $id);
             $test_user2->save();
 
             //Act
@@ -112,16 +120,18 @@
         function testFindUserById()
         {
             //Arrange
-            $username = "bpopson@gmail.com";
+            $username = "bpopson";
             $password = "poke-fish";
+            $email = "poke@pokemon.com"
             $id = null;
-            $test_user = new User($username, $password, $id);
+            $test_user = new User($username, $password, $email, $id);
             $test_user->save();
 
-            $username2 = "aaike001@gmail.com";
+            $username2 = "aaike001";
             $password2 = "pokepoke";
+            $email2 = "poke2@pokemon.com"
             $id = null;
-            $test_user2 = new User($username2, $password2, $id);
+            $test_user2 = new User($username2, $password2, $email2, $id);
             $test_user2->save();
 
             //Act
@@ -131,14 +141,39 @@
             $this->assertEquals($test_user, $result);
         }
 
+        function testFindUserByName()
+        {
+            //Arrange
+            $username = "bpopson";
+            $password = "poke-fish";
+            $email = "poke@pokemon.com"
+            $id = null;
+            $test_user = new User($username, $password, $email, $id);
+            $test_user->save();
+
+            $username2 = "aaike001";
+            $password2 = "pokepoke";
+            $email2 = "poke2@pokemon.com"
+            $id = null;
+            $test_user2 = new User($username2, $password2, $email2, $id);
+            $test_user2->save();
+
+            //Act
+            $result = User::findUserByName($test_user->getName());
+
+            //Assert
+            $this->assertEquals($test_user, $result);
+        }
+
 
           function testGetPokemon()
           {
               //Arrange
-              $username = "bpopson@gmail.com";
+              $username = "bpopson";
               $password = "poke-fish";
+              $email = "poke@pokemon.com"
               $id = null;
-              $test_user = new User($username, $password, $id);
+              $test_user = new User($username, $password, $email, $id);
               $test_user->save();
 
               $name = "Bulbasaur";
