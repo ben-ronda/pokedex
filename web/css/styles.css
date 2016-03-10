@@ -2,9 +2,9 @@ body {
   background-color: #ffffe7;
   color: #355AAA;
   font-size: 18px;
-  font-family: 'VT323', ;
+  font-family: 'Righteous', cursive;
   background-color: #908F8F;
-  padding-top: 150px;
+  padding-top: 125px;
 }
 
 .jumbotron {
@@ -23,9 +23,7 @@ body {
   padding-top: 30px;
 }
 
-.navbar-fixed-top {
-  margin-bottom: 300px;
-}
+
 
 .extra-link {
   margin-right: 25px;
@@ -51,7 +49,6 @@ body {
 }
 
 .pokeball {
-  
   width: 50px;
   height: auto;
 }
@@ -66,10 +63,11 @@ body {
 }
 
 .catch {
-  font-size: 55px;
+  font-size: 85px;
+  text-align: center;
 }
-/*add blue text shadow to yellow font like pokemon title
-a {
-  color: #FFCB05;
-  text-shadow: -3px -2px #355AAA;
-}*/
+
+.pokename {
+  text-align: center;
+  font-size: 80px;
+}

@@ -75,7 +75,7 @@
         }
         $new_user = new User($username, $password);
         $new_user->save();
-        return $app['twig']->render('profile.html.twig', array('username' => $new_user->getUsername(), 'user' => $user, 'pokemons' => $new_user->getPokemon()));
+        return $app['twig']->render('profile.html.twig', array('username' => $new_user->getUsername(), 'pokemons' => $new_user->getPokemon()));
     });
 
     $app->post("/login", function() use ($app)
@@ -113,6 +113,13 @@
         $user = User::findUserById($_POST['user_id']);
         $pokemon = Pokemon::findPokemon($_POST['pokemon_id']);
         $user->addPokemon($pokemon);
+        return $app['twig']->render('profile.html.twig', array('username' => $user->getUsername(), 'pokemons' => $user->getPokemon(), 'user' => $user, 'all_pokemons' => Pokemon::getAll()));
+    });
+
+    $app->delete("/delete_pokemon", function() use ($app) {
+        $user = User::findUserById($_POST['user_id']);
+        $pokemon = Pokemon::findPokemon($_POST['pokemon_id']);
+        $user->deletePokemon($pokemon);
         return $app['twig']->render('profile.html.twig', array('username' => $user->getUsername(), 'pokemons' => $user->getPokemon(), 'user' => $user, 'all_pokemons' => Pokemon::getAll()));
     });
 

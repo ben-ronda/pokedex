@@ -106,16 +106,26 @@
                 WHERE users.id = {$this->getId()};");
             $pokemons = array();
             foreach($returned_pokemon as $pokemon) {
-                $name = $pokemon['name'];
-                $dex_number = $pokemon['dex_number'];
-                $height_feet = $pokemon['height_feet'];
-                $height_inches = $pokemon['height_inches'];
-                $weight = $pokemon['weight'];
-                $id = $pokemon['id'];
-                $new_pokemon = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight, $id);
+              $name = $pokemon['name'];
+              $dex_number = $pokemon['dex_number'];
+              $height_feet = $pokemon['height_feet'];
+              $height_inches = $pokemon['height_inches'];
+              $weight = $pokemon['weight'];
+              $img = $pokemon['img'];
+              $description = $pokemon['description'];
+              $id = $pokemon['id'];
+              $new_pokemon = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight, $img, $description, $id);
                 array_push($pokemons, $new_pokemon);
             }
             return $pokemons;
+        }
+
+        function deletePokemon()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM users
+                JOIN pokemon_users ON (users.id = pokemon_users.user_id)
+                JOIN pokemon ON (pokemon_users.pokemon_id = pokemon.id)
+                WHERE users.id = {$this->getId()};");
         }
 
     }

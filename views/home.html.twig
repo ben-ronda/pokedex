@@ -9,7 +9,43 @@
     {% include '/includes/navbar.html.twig' %}
     <!-- End Navbar -->
     <div class="container">
-      <h1 class="catch">Gotta Catch Them All?</h1>
+      <h1 class="catch">Gotta Catch Them All!</h1>
+      <div class="row">
+        <!-- Registration Form -->
+        <div class="col col-md-6">
+          <div class="form">
+            <h3>Register a New User Here</h3>
+            <form name="registration" action="/register" method="post">
+              <input type="text" name="username" placeholder="Username/Email" required /><br><br>
+              <input type="password" name="password" placeholder="Password" required /><br><br>
+              <input type="submit" name="submit" value="Register"/>
+            </form><br>
+            {% if alert_register %}
+            <div class="alert alert-danger" role="alert">
+              {{ failed_register }}
+            </div>
+            {% endif %}
+          </div>
+        </div>
+        <!-- End Registration Form -->
+        <!-- Login Form -->
+        <div class="col col-md-6">
+          <div class="form">
+            <h3>Existing User</h3>
+            <form name="login" action="/login" method="post">
+              <input type="text" name="username" placeholder="Username/Email" required /><br><br>
+              <input type="password" name="password" placeholder="Password" required /><br><br>
+              <input type="submit" name="submit" value="Sign In" />
+            </form><br>
+            {% if alert_login %}
+            <div class="alert alert-danger" role="alert">
+              {{ failed_login }}
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+        <!-- End Login Form -->
       <!-- Carousel -->
       <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
       <!-- Wrapper for slides -->
@@ -36,48 +72,13 @@
             <img src="/images/pokemon/sandshrew.png" alt="Sandshrew">
           </div>
           <div class="item">
-            <img src="/images/pokemon/mew.png" alt="Mew">
+            <img src="/images/pokemon/snorlax.png" alt="Snorlax">
           </div>
           <div class="item">
             <img src="/images/pokemon/magikarp.png" alt="magikarp">
           </div>
         </div>
       <!-- End Carousel -->
-        <div class="row">
-        <!-- Registration Form -->
-          <div class="col col-md-6">
-            <div class="form">
-            <h3>Register a New User Here</h3>
-            <form name="registration" action="/register" method="post">
-              <input type="text" name="username" placeholder="Username/Email" required /><br><br>
-              <input type="password" name="password" placeholder="Password" required /><br><br>
-              <input type="submit" name="submit" value="Register"/>
-              </form><br>
-            {% if alert_register %}
-                <div class="alert alert-danger" role="alert">
-            {{ failed_register }}
-                </div>
-            {% endif %}
-            </div>
-          </div>
-        <!-- End Registration Form -->
-        <!-- Login Form -->
-          <div class="col col-md-6">
-            <div class="form">
-            <h3>Existing User</h3>
-            <form name="login" action="/login" method="post">
-              <input type="text" name="username" placeholder="Username/Email" required /><br><br>
-              <input type="password" name="password" placeholder="Password" required /><br><br>
-              <input type="submit" name="submit" value="Sign In" />
-            </form><br>
-            {% if alert_login %}
-                <div class="alert alert-danger" role="alert">
-            {{ failed_login }}
-                </div>
-            {% endif %}
-            </div>
-          </div>
-          <!-- End Login Form -->
         </div>
     </div>
   </body>

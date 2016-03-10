@@ -49,7 +49,7 @@
         }
 
         function getDescription(){
-            return $this->$description;
+            return $this->description;
         }
 
         function getTypes(){
