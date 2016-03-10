@@ -7,14 +7,16 @@
         private $weight;
         private $id;
         private $img;
+        private $description;
 
-        function __construct($name, $dex_number, $height_feet, $height_inches, $weight, $img, $id = null){
+        function __construct($name, $dex_number, $height_feet, $height_inches, $weight, $img, $description, $id = null){
             $this->name = $name;
             $this->dex_number = $dex_number;
             $this->height_feet = $height_feet;
             $this->height_inches = $height_inches;
             $this->weight = $weight;
             $this->img = $img;
+            $this->description = $description;
             $this->id = $id;
         }
 
@@ -46,6 +48,10 @@
             return $this->img;
         }
 
+        function getDescription(){
+            return $this->$description;
+        }
+
         function getTypes(){
             $returned_types = $GLOBALS['DB']->query("SELECT types.* FROM pokemon
                 JOIN pokemon_types ON (pokemon.id = pokemon_types.pokemon_id)
@@ -70,8 +76,8 @@
         }
 
         function save(){
-            $GLOBALS['DB']->exec("INSERT INTO pokemon (name, height_feet, height_inches, weight, dex_number)
-            VALUES ('{$this->getName()}', {$this->getHeightFeet()}, {$this->getHeightInches()}, {$this->getWeight()}, '{$this->getDexNumber()}', '{$this->getImagePath}');");
+            $GLOBALS['DB']->exec("INSERT INTO pokemon (name, height_feet, height_inches, weight, dex_number, description)
+            VALUES ('{$this->getName()}', {$this->getHeightFeet()}, {$this->getHeightInches()}, {$this->getWeight()}, '{$this->getDexNumber()}', '{$this->getImagePath()}', '{$this->getDescription()}');");
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
@@ -85,8 +91,9 @@
                 $height_inches = $pokemon['height_inches'];
                 $weight = $pokemon['weight'];
                 $img = $pokemon['img'];
+                $description = $pokemon['description'];
                 $id = $pokemon['id'];
-                $new_pokemon = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight, $img, $id);
+                $new_pokemon = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight, $img, $description, $id);
 
                 array_push($matches, $new_pokemon);
             }
@@ -103,8 +110,9 @@
                 $height_inches = $pokemon['height_inches'];
                 $weight = $pokemon['weight'];
                 $img = $pokemon['img'];
+                $description = $pokemon['description'];
                 $id = $pokemon['id'];
-                $new_pokemon = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight, $img, $id);
+                $new_pokemon = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight, $img, $description, $id);
 
                 array_push($all, $new_pokemon);
             }
