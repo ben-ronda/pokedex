@@ -94,7 +94,7 @@
         }
 
         static function getAll(){
-            $returned_pokemon = $GLOBALS['DB']->query("SELECT * FROM pokemon;");
+            $returned_pokemon = $GLOBALS['DB']->query("SELECT * FROM pokemon ORDER BY dex_number;");
             $all = array();
             foreach($returned_pokemon as $pokemon){
                 $name = $pokemon['name'];

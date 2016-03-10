@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% include '/includes/head.html.twig' %}
+    <title>Pokedex</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">
+            <img alt="Brand" src="/images/pokemonTitle.png" class="pokelogo">
+          </a>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div id="content">
+        <table class="table table-bordered table-hover">
+            {% if pokemons is not empty %}
+                <div class=".table_key">
+                    <tr>
+                        <th id="number">Number</th>
+                        <th id="img">Image</th>
+                        <th id="name">Name</th>
+                        <th id="height">Height</th>
+                        <th id="weight">Weight</th>
+                        <th id="type">Type 1</th>
+                        <th id="type">Type 2</th>
+                    </tr>
+                </div>
+                    {% for pokemon in pokemons %}
+                        <tr class="tr-height">
+                            <td id="number">{{ pokemon.getDexNumber }}</td>
+                            <td id="img"><a href="/pokemon/{{ pokemon.getId }}"><img src="{{ pokemon.getImagePath }}" class="pokemon" /></a></td>
+                            <td id="name">{{ pokemon.getName }}</td>
+                            <td id="height">{{ pokemon.getHeightFeet }}' {{ pokemon.getHeightInches }}"</td>
+                            <td id="weight">{{ pokemon.getWeight }}</td>
+                        {% for type in pokemon.getTypes %}
+                          {% if pokemon.getTypes|length == 1 %}
+                            <td id="type">{{ type.getName }}</td>
+                            <td>N/A</td>
+                            {% else %}
+                            <td id="type">{{ type.getName }}</td>
+                          {% endif %}
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+            {% endif %}
+        </table>
+    </div>
+    </div>
+  </body>
+</html>
