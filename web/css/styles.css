@@ -11,6 +11,21 @@ body {
   background-color: #313131;
 }
 
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  width: 300px; /* use this, or not */
+  height: 80%;
+  margin: auto;
+}
+
+.carousel {
+  height: 350px;
+  padding-top: 30px;
+}
+
+.navbar {
+  margin-bottom: 100px;
+}
 
 .title {
   height: 200px;
@@ -35,7 +50,7 @@ body {
 }
 
 .pokelogo {
-  height: 50px;
+  height: 60px;
   width: auto;
 }
 
