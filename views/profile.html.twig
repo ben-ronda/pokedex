@@ -6,34 +6,30 @@
   </head>
   <body>
     <!--Navbar-->
-    <nav class="navbar navbar-default navbar-fixed-top" toll="navigation">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="/">
-            <img alt="Brand" src="/images/pokemonTitle.png" class="pokelogo">
-          </a>
-        </div>
-        <div>
-          <ul class = "nav navbar-nav navbar-right extra-link">
-            <li><a href="/types">Types</a></li>
-            <li><a href="/pokemon_all">Pokemon</a></li> 
-        </div>
-      </div>
-    </nav>
+    {% include '/includes/navbar.html.twig' %}
     <!-- End Navbar -->
     <div class="container">
-    <h1>Welcome {{ username }}!</h1>
+    <h1>Welcome!</h1>
+    <form action='/add_pokemon' method='post'>
+      <input id="user_id" name="user_id" type="hidden" value="{{ user.getId }}">
+      <label for="pokemon_id">Select a pokemon</label>
+      <select id='pokemon_id' name='pokemon_id' type='text'>
+        {% for pokemon in all_pokemons %}
+        <option value="{{ pokemon.getId }}"> {{ pokemon.getName }} </option>
+        {% endfor %}
+      </select>
+      <button type='submit'>Add pokemon</button>
+    </form>
     {% if pokemons is not empty %}
-      <p>
-        Want to add pokemon to your collection?
-      </p>
+
           {% for pokemon in pokemons %}
-              <h3>{{ pokemon.getName }}</h3>
-              <h4>{{ pokemon.getDexNumber }}</h4>
+              <li><h3>{{ pokemon.getName }} <h4>{{ pokemon.getDexNumber }}</h4></h3>
+              </li>
           {% endfor %}
         {% else %}
-            <h3>You haven't caught any pokemon yet! Click <a href="/pokemon_all">here</a> to start!</h3>
+            <h3>You haven't caught any pokemon yet!</h3>
         {% endif %}
+
     </div>
 
 

@@ -50,16 +50,18 @@
 
     $app->get("/user/{id}", function($id) use ($app)
     {
+        $_SESSION['user']['username'] = $user->getUsername();
+        $_SESSION['user']['id'] = $user->getId();
         $user = User::findUserById($id);
-        return $app['twig']->render('profile.html.twig', array('pokemon'=>$pokemon, 'types'=>Type::getAll(), 'pokemons'=>Pokemon::getAll()));
+        return $app['twig']->render('profile.html.twig', array('pokemon'=>$pokemon, 'types'=>Type::getAll(), 'pokemons'=>Pokemon::getAll(), 'user' => $user));
     });
 
-    // $app->post("{id}/addPokemon", function($id) use ($app) {
-    //     $pokemon = Pokemon::findPokemon($_POST['pokemon_id']);
-    //     // $user = User::findUserById($_POST['user_id']);
-    //     $user->addPokemon($pokemon);
-    //     return $app['twig']->render('profile.html.twig', array('user' => $user, 'users' => User::getAll(), 'pokemons'=>$user->getPokemons(), 'all_pokemons'=> Pokemon::getAll()));
-    // });
+    $app->post("{id}/addPokemon", function($id) use ($app) {
+        $pokemon = Pokemon::findPokemon($_POST['pokemon_id']);
+        $user = User::findUserById($_POST['user_id']);
+        $user->addPokemon($pokemon);
+        return $app['twig']->render('profile.html.twig', array('user' => $user, 'users' => User::getAll(), 'pokemons'=>$user->getPokemons(), 'all_pokemons'=> Pokemon::getAll()));
+    });
 
     $app->get("/pokemon_all", function() use ($app)
     {
@@ -87,11 +89,12 @@
         $username = $_POST['username'];
         $password = $_POST['password'];
         $users = User::getAll();
+        $all_pokemons = Pokemon::getAll();
         foreach($users as $user) {
             if(($username == $user->getUsername()) && ($password == $user->getPassword())) {
               $_SESSION['user']['username'] = $user->getUsername();
               $_SESSION['user']['id'] = $user->getId();
-              return $app['twig']->render('profile.html.twig', array('username' => $user->getUsername(), 'pokemons' => $user->getPokemon()));
+              return $app['twig']->render('profile.html.twig', array('username' => $user->getUsername(), 'pokemons' => $user->getPokemon(), 'user' => $user, 'all_pokemons' => $all_pokemons));
             }
         }
         return $app['twig']->render('home.html.twig', array('alert_login'=>true, 'failed_login' => 'You used LOGIN! It is not very effective... Please try again.', 'alert_register'=>false));
@@ -100,6 +103,14 @@
     $app->post("/logout", function() use ($app) {
         $_SESSION['user'] = array('username'=> null, 'password'=> null);
         return $app['twig']->render('home.html.twig', array('alert_register' => false, 'alert_login' => false));
+    });
+
+    ////////Add pokemon to user////////////
+    $app->post("/add_pokemon", function() use ($app) {
+        $user = User::findUserById($_POST['user_id']);
+        $pokemon = Pokemon::findPokemon($_POST['pokemon_id']);
+        $user->addPokemon($pokemon);
+        return $app['twig']->render('profile.html.twig', array('username' => $user->getUsername(), 'pokemons' => $user->getPokemon(), 'user' => $user, 'all_pokemons' => Pokemon::getAll()));
     });
 
     return $app;

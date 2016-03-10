@@ -6,21 +6,7 @@
   </head>
   <body>
     <!--Navbar-->
-    <nav class="navbar navbar-default navbar-fixed-top" toll="navigation">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">
-            <img alt="Brand" src="/images/pokemonTitle.png" class="pokelogo">
-          </a>
-        </div>
-        <div>
-          <ul class = "nav navbar-nav navbar-right extra-link">
-            <li><a href="/types">Types</a></li>
-            <li><a href="/pokemon_all">Pokemon</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    {% include '/includes/navbar.html.twig' %}
     <!-- End Navbar -->
     <div class="container">
       <h1>{{ pokemon.getName }}</a></h1>
@@ -28,8 +14,8 @@
       <li><span class="bold">Dex Number:</span> {{ pokemon.getDexNumber }}</li>
       <li><span class="bold">Size:</span> {{ pokemon.getHeightFeet }}' {{ pokemon.getHeightInches }}"</li>
       <li><span class="bold">Weight:</span> {{ pokemon.getWeight }} pounds</li>
-      {% for types as type %}
-        <li><span class="bold">Type:</span> {{ pokemon.getType }} </li>
+      {% for type in pokemon.getTypes %}
+        <li><span class="bold">Type:</span> <a href="/type/{{ type.getID }}">{{ type.getName }}</a></li>
       {% endfor %}
 
 
