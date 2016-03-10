@@ -22,7 +22,8 @@
       </form>
           {% if pokemons is not empty %}
               {% for pokemon in pokemons %}
-              <li><h3>{{ pokemon.getName }} <h4>{{ pokemon.getDexNumber }}</h4></h3>
+              <li><h3>{{ pokemon.getName }} - {{ pokemon.getDexNumber }}</h3>
+                <img src='{{ pokemon.getImagePath }}' class="pokemon"/>
               </li>
               {% endfor %}
           {% else %}
