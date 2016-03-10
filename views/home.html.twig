@@ -5,36 +5,66 @@
     <title></title>
   </head>
   <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">
-            <img alt="Brand" src="/images/pokemonTitle.png" class="pokelogo">
-          </a>
-        </div>
-      </div>
-    </nav>
+    <!--Navbar-->
+    {% include '/includes/navbar.html.twig' %}
+    <!-- End Navbar -->
     <div class="container">
       <h1 class="catch">Gotta Catch Them All?</h1>
-      <div class="row">
-        <div class="col col-md-6">
-          <div class="form">
+      <!-- Carousel -->
+      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+      <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <img src="/images/pokemon/pikachu.png" alt="Pikachu">
+          </div>
+          <div class="item">
+            <img src="/images/pokemon/bulbasaur.png" alt="Bulbasaur">
+          </div>
+          <div class="item">
+            <img src="/images/pokemon/squirtle.png" alt="Squirtle">
+          </div>
+          <div class="item">
+            <img src="/images/pokemon/charmander.png" alt="Charmander">
+          </div>
+          <div class="item">
+            <img src="/images/pokemon/jigglypuff.png" alt="Jigglypuff">
+          </div>
+          <div class="item">
+            <img src="/images/pokemon/meowth.png" alt="Meowth">
+          </div>
+          <div class="item">
+            <img src="/images/pokemon/sandshrew.png" alt="Sandshrew">
+          </div>
+          <div class="item">
+            <img src="/images/pokemon/mew.png" alt="Mew">
+          </div>
+          <div class="item">
+            <img src="/images/pokemon/magikarp.png" alt="magikarp">
+          </div>
+        </div>
+      <!-- End Carousel -->
+        <div class="row">
+        <!-- Registration Form -->
+          <div class="col col-md-6">
+            <div class="form">
             <h3>Register a New User Here</h3>
             <form name="registration" action="/register" method="post">
               <input type="text" name="username" placeholder="Username/Email" required /><br><br>
               <input type="password" name="password" placeholder="Password" required /><br><br>
               <input type="submit" name="submit" value="Register"/>
-            </form><br>
+              </form><br>
             {% if alert_register %}
                 <div class="alert alert-danger" role="alert">
-                  {{ failed_register }}
+            {{ failed_register }}
                 </div>
             {% endif %}
+            </div>
           </div>
-        </div>
-        <div class="col col-md-6">
-          <div class="form">
-            <h3>Existing User Log In</h3>
+        <!-- End Registration Form -->
+        <!-- Login Form -->
+          <div class="col col-md-6">
+            <div class="form">
+            <h3>Existing User</h3>
             <form name="login" action="/login" method="post">
               <input type="text" name="username" placeholder="Username/Email" required /><br><br>
               <input type="password" name="password" placeholder="Password" required /><br><br>
@@ -42,12 +72,13 @@
             </form><br>
             {% if alert_login %}
                 <div class="alert alert-danger" role="alert">
-                  {{ failed_login }}
+            {{ failed_login }}
                 </div>
             {% endif %}
+            </div>
           </div>
+          <!-- End Login Form -->
         </div>
-      </div>
     </div>
   </body>
 </html>

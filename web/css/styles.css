@@ -4,13 +4,34 @@ body {
   font-size: 18px;
   font-family: 'VT323', ;
   background-color: #908F8F;
-  padding-top: 95px;
+  padding-top: 150px;
 }
 
 .jumbotron {
   background-color: #313131;
 }
 
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  width: 300px; /* use this, or not */
+  height: 80%;
+  margin: auto;
+}
+
+.carousel {
+  height: 350px;
+  padding-top: 30px;
+}
+
+.navbar-fixed-top {
+  margin-bottom: 300px;
+}
+
+.extra-link {
+  margin-right: 25px;
+  margin-top: 25px;
+  font-size: 20px;
+}
 
 .title {
   height: 200px;
@@ -30,12 +51,13 @@ body {
 }
 
 .pokeball {
+  
   width: 50px;
-  height: 50px;
+  height: auto;
 }
 
 .pokelogo {
-  height: 50px;
+  height: 60px;
   width: auto;
 }
 
