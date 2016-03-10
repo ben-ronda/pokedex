@@ -4,7 +4,7 @@ body {
   font-size: 18px;
   font-family: 'VT323', ;
   background-color: #908F8F;
-  padding-top: 95px;
+  padding-top: 150px;
 }
 
 .jumbotron {
@@ -23,8 +23,8 @@ body {
   padding-top: 30px;
 }
 
-.navbar {
-  margin-bottom: 100px;
+.navbar-fixed-top {
+  margin-bottom: 300px;
 }
 
 .extra-link {
@@ -51,8 +51,9 @@ body {
 }
 
 .pokeball {
+  
   width: 50px;
-  height: 50px;
+  height: auto;
 }
 
 .pokelogo {

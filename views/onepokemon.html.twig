@@ -28,10 +28,11 @@
       <li><span class="bold">Dex Number:</span> {{ pokemon.getDexNumber }}</li>
       <li><span class="bold">Size:</span> {{ pokemon.getHeightFeet }}' {{ pokemon.getHeightInches }}"</li>
       <li><span class="bold">Weight:</span> {{ pokemon.getWeight }} pounds</li>
+      {% for types as type %}
+        <li><span class="bold">Type:</span> {{ pokemon.getType }} </li>
+      {% endfor %}
 
-      <form action='/{{ pokemon.getId }}/addPokemon' method='post'>
-        <button type='submit' name="add_pokemon" class='btn btn-xs'><img src="/images/pokeball.jpg" class="pokeball"/>Catch</button>
-      </form>
+
     </div>
   </body>
 </html>

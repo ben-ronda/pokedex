@@ -9,21 +9,31 @@
     <nav class="navbar navbar-default navbar-fixed-top" toll="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href="/">
             <img alt="Brand" src="/images/pokemonTitle.png" class="pokelogo">
           </a>
         </div>
         <div>
           <ul class = "nav navbar-nav navbar-right extra-link">
             <li><a href="/types">Types</a></li>
-            <li><a href="/pokemon_all">Pokemon</a></li>
-          </ul>
+            <li><a href="/pokemon_all">Pokemon</a></li> 
         </div>
       </div>
     </nav>
     <!-- End Navbar -->
     <div class="container">
-    <h1>SUCCESS!!!!</h1>
+    <h1>Welcome {{ username }}!</h1>
+    {% if pokemons is not empty %}
+      <p>
+        Want to add pokemon to your collection?
+      </p>
+          {% for pokemon in pokemons %}
+              <h3>{{ pokemon.getName }}</h3>
+              <h4>{{ pokemon.getDexNumber }}</h4>
+          {% endfor %}
+        {% else %}
+            <h3>You haven't caught any pokemon yet! Click <a href="/pokemon_all">here</a> to start!</h3>
+        {% endif %}
     </div>
 
 
