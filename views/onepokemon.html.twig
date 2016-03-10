@@ -5,20 +5,18 @@
     <title>Pokedex</title>
   </head>
   <body>
-    <!--Navbar-->
-    {% include '/includes/navbar.html.twig' %}
-    <!-- End Navbar -->
+      <!--Navbar-->
+      {% include '/includes/navbar.html.twig' %}
+      <!-- End Navbar -->
     <div class="container">
       <h1>{{ pokemon.getName }}</a></h1>
       <img src='{{ pokemon.getImagePath }}' class="pokemon"/><br><br>
-      <li><span class="bold">Dex Number:</span> {{ pokemon.getDexNumber }}</li>
-      <li><span class="bold">Size:</span> {{ pokemon.getHeightFeet }}' {{ pokemon.getHeightInches }}"</li>
-      <li><span class="bold">Weight:</span> {{ pokemon.getWeight }} pounds</li>
+        <li><span class="bold">Dex Number:</span> {{ pokemon.getDexNumber }}</li>
+        <li><span class="bold">Size:</span> {{ pokemon.getHeightFeet }}' {{ pokemon.getHeightInches }}"</li>
+        <li><span class="bold">Weight:</span> {{ pokemon.getWeight }} pounds</li>
       {% for type in pokemon.getTypes %}
-        <li><span class="bold">Type:</span> <a href="/type/{{ type.getID }}">{{ type.getName }}</a></li>
+          <li><span class="bold">Type:</span> <a href="/type/{{ type.getID }}">{{ type.getName }}</a></li>
       {% endfor %}
-
-
     </div>
   </body>
 </html>

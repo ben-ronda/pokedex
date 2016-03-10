@@ -9,28 +9,24 @@
     {% include '/includes/navbar.html.twig' %}
     <!-- End Navbar -->
     <div class="container">
-    <h1>Welcome!</h1>
-    <form action='/add_pokemon' method='post'>
-      <input id="user_id" name="user_id" type="hidden" value="{{ user.getId }}">
-      <label for="pokemon_id">Select a pokemon</label>
-      <select id='pokemon_id' name='pokemon_id' type='text'>
-        {% for pokemon in all_pokemons %}
-        <option value="{{ pokemon.getId }}"> {{ pokemon.getName }} </option>
-        {% endfor %}
-      </select>
-      <button type='submit'>Add pokemon</button>
-    </form>
-    {% if pokemons is not empty %}
-
-          {% for pokemon in pokemons %}
+      <h1>Welcome!</h1>
+      <form action='/add_pokemon' method='post'>
+        <input id="user_id" name="user_id" type="hidden" value="{{ user.getId }}">
+        <label for="pokemon_id">Select a pokemon</label>
+        <select id='pokemon_id' name='pokemon_id' type='text'>
+            {% for pokemon in all_pokemons %}
+                <option value="{{ pokemon.getId }}"> {{ pokemon.getName }} </option>
+            {% endfor %}
+        </select>
+        <button type='submit'>Add pokemon</button>
+      </form>
+          {% if pokemons is not empty %}
+              {% for pokemon in pokemons %}
               <li><h3>{{ pokemon.getName }} <h4>{{ pokemon.getDexNumber }}</h4></h3>
               </li>
-          {% endfor %}
-        {% else %}
-            <h3>You haven't caught any pokemon yet!</h3>
-        {% endif %}
-
+              {% endfor %}
+          {% else %}
+              <h3>You haven't caught any pokemon yet!</h3>
+          {% endif %}
     </div>
-
-
 </body>
