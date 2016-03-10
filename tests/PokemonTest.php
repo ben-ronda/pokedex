@@ -24,7 +24,8 @@
             $height_feet = 2;
             $height_inches = 04;
             $weight = 15.2;
-            $test_pokemon = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight);
+            $description = "Bulb";
+            $test_pokemon = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight, $img = null, $description);
 
             $result = $test_pokemon->getName();
 
@@ -37,7 +38,8 @@
             $height_feet = 2;
             $height_inches = 04;
             $weight = 15.2;
-            $test_pokemon = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight);
+            $description = "Bulb";
+            $test_pokemon = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight, $img = null, $description);
 
             $result = $test_pokemon->getDexNumber();
 
@@ -50,7 +52,8 @@
             $height_feet = 2;
             $height_inches = 04;
             $weight = 15.2;
-            $test_pokemon = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight);
+            $description = "Bulb";
+            $test_pokemon = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight, $img = null, $description);
 
             $result = $test_pokemon->getHeightFeet();
 
@@ -63,7 +66,8 @@
             $height_feet = 2;
             $height_inches = 04;
             $weight = 15.2;
-            $test_pokemon = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight);
+            $description = "Bulb";
+            $test_pokemon = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight, $img = null, $description);
 
             $result = $test_pokemon->getHeightInches();
 
@@ -76,7 +80,8 @@
             $height_feet = 2;
             $height_inches = 04;
             $weight = 15.2;
-            $test_pokemon = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight);
+            $description = "Bulb";
+            $test_pokemon = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight, $img = null, $description);
 
             $result = $test_pokemon->getWeight();
 
@@ -89,7 +94,8 @@
             $height_feet = 2;
             $height_inches = 04;
             $weight = 15.2;
-            $test_pokemon = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight);
+            $description = "Bulb";
+            $test_pokemon = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight, $img = null, $description);
             $test_pokemon->save();
 
             $result = Pokemon::getAll();
@@ -103,7 +109,8 @@
             $height_feet = 2;
             $height_inches = 04;
             $weight = 15.2;
-            $test_pokemon = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight);
+            $description = "Bulb";
+            $test_pokemon = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight, $img = null, $description);
             $test_pokemon->save();
 
             $name2 = "Charmander";
@@ -111,7 +118,8 @@
             $height_feet2 = 2;
             $height_inches2 = 00;
             $weight2 = 18.7;
-            $test_pokemon2 = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight);
+            $description2 = "Lizard";
+            $test_pokemon2 = new Pokemon($name2, $dex_number2, $height_feet2, $height_inches2, $weight2, $img = null, $description2);
             $test_pokemon2->save();
 
             $result = Pokemon::getAll();
@@ -125,7 +133,8 @@
             $height_feet = 2;
             $height_inches = 04;
             $weight = 15.2;
-            $test_pokemon = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight);
+            $description = "Bulb";
+            $test_pokemon = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight, $img = null, $description);
             $test_pokemon->save();
 
             $name2 = "Charmander";
@@ -133,7 +142,8 @@
             $height_feet2 = 2;
             $height_inches2 = 00;
             $weight2 = 18.7;
-            $test_pokemon2 = new Pokemon($name2, $dex_number2, $height_feet2, $height_inches2, $weight2);
+            $description2 = "Lizard";
+            $test_pokemon2 = new Pokemon($name2, $dex_number2, $height_feet2, $height_inches2, $weight2, $img = null, $description2);
             $test_pokemon2->save();
 
             $result = Pokemon::searchName($test_pokemon2->getName());
@@ -147,7 +157,8 @@
             $height_feet2 = 2;
             $height_inches2 = 00;
             $weight2 = 18.7;
-            $test_pokemon2 = new Pokemon($name2, $dex_number2, $height_feet2, $height_inches2, $weight2);
+            $description2 = "Lizard";
+            $test_pokemon2 = new Pokemon($name2, $dex_number2, $height_feet2, $height_inches2, $weight2, $img = null, $description2);
             $test_pokemon2->save();
 
             $name = "Fire";
