@@ -5,9 +5,23 @@
     <title>Pokedex</title>
   </head>
   <body>
-    <div class="jumbotron">
-      <img class="title" src="/images/pokemonTitle.png"/>
-    </div>
+    <!--Navbar-->
+        <nav class="navbar navbar-default navbar-fixed-top" toll="navigation">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#">
+                <img alt="Brand" src="/images/pokemonTitle.png" class="pokelogo">
+              </a>
+            </div>
+            <div>
+              <ul class = "nav navbar-nav navbar-right extra-link">
+                <li><a href="/types">Types</a></li>
+                <li><a href="/pokemon_all">Pokemon</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <!-- End Navbar -->
     <div class="container">
     {% if types|length  %}
     {% set typesPerColumn = (types|length / 3)|round(0, 'ceil') %}
