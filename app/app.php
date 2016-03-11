@@ -110,7 +110,12 @@
         $id = $_SESSION['user']['id'];
         $user = User::findUserById($id);
         $pokemon = $user->getPokemon();
-        $all_pokemons = Pokemon::getAllBut(array_map(function($onepoke){return $onepoke->getId();},$pokemon));
+        if (empty($pokemon)){
+            $all_pokemons = Pokemon::getAll();
+        }
+        else{
+            $all_pokemons = Pokemon::getAllBut(array_map(function($onepoke){return $onepoke->getId();},$pokemon));
+        }
         return $app['twig']->render('profile.html.twig', array('pokemons'=>$pokemon, 'types'=>Type::getAll(), 'all_pokemons'=>$all_pokemons, 'user' => $user));
     });
 
@@ -119,7 +124,12 @@
         $user = User::findUserById($_POST['user_id']);
         $pokemon = Pokemon::findPokemon($_POST['pokemon_id']);
         $user->addPokemon($pokemon);
-        $all_pokemons = Pokemon::getAllBut(array_map(function($onepoke){return $onepoke->getId();},$user->getPokemon()));
+        if (empty($user->getPokemon())){
+            $all_pokemons = Pokemon::getAll();
+        }
+        else{
+            $all_pokemons = Pokemon::getAllBut(array_map(function($onepoke){return $onepoke->getId();},$user->getPokemon()));
+        }
         return $app['twig']->render('profile.html.twig', array('username' => $user->getUsername(), 'pokemons' => $user->getPokemon(), 'user' => $user, 'all_pokemons' => $all_pokemons));
     });
 
@@ -127,7 +137,12 @@
         $user = User::findUserById($_POST['user_id']);
         $pokemon = Pokemon::findPokemon($_POST['pokemon_id']);
         $user->deletePokemon($pokemon);
-        $all_pokemons = Pokemon::getAllBut(array_map(function($onepoke){return $onepoke->getId();},$user->getPokemon()));
+        if (empty($user->getPokemon())){
+            $all_pokemons = Pokemon::getAll();
+        }
+        else{
+            $all_pokemons = Pokemon::getAllBut(array_map(function($onepoke){return $onepoke->getId();},$user->getPokemon()));
+        }
         return $app['twig']->render('profile.html.twig', array('username' => $user->getUsername(), 'pokemons' => $user->getPokemon(), 'user' => $user, 'all_pokemons' => $all_pokemons));
     });
 
