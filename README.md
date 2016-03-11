@@ -1,12 +1,12 @@
 # _Pokedex_
 
-#### _{Brief description of application}, 03/11/2016_
+#### _A Regional Pokedex for the Kanto region of the Pokemon Franchise, 03/11/2016_
 
 #### By _**Ben Ronda, Connor Belvin, Bri Popson, Afton Downey**_
 
 ## Description
 
-_{This is a detailed description of your application. Its purpose and usage.  Give as much detail as needed to explain what the application does, and any other information you want users or other developers to have. }_
+_This is a user based site for adding pokemon from the Kanto region you have caught in the games to a user profile. The pokedex also lets you search pokemon types and see there strengths and weaknesses._
 
 ## Setup/Installation Requirements
 
@@ -14,9 +14,13 @@ _{This is a detailed description of your application. Its purpose and usage.  Gi
 * _Please create a separate branch if you cloned_
 * _Open the folder in a text editor like Atom to view the code_
 * _In your terminal for the site to work, use the command "composer update"_
+* _Open or Install MAMP and press "Run Servers"_
+* _In your browser, navigate to localhost:8888/phpmyadmin (the port number can vary depending on how MySQL and Apache are configured on your computer)_
+* _Under the "Import" Tab select the pokedex.sql.zip file and press "Go"(This installs the database required for the site)_
 * _To see the page displayed on the front end, within the terminal navigate to the web folder to initialize a local server_
 * _Type in the command "php -S localhost:8000" to start the server_
 * _Use localhost:8000 in your web browser to view the page_
+
 
 * MySQL Commands
 1. create database pokedex;
@@ -30,13 +34,9 @@ _{This is a detailed description of your application. Its purpose and usage.  Gi
 
 _See Type_list file for a list of data used in database._
 
-## Known Bugs
-
-_{Are there issues that have not yet been resolved that you want to let users know you know?  Outline any issues that would impact use of your application.  Share any workarounds that are in place. }_
-
 ## Support and contact details
 
-_{Let people know what to do if they run into any issues or have questions, ideas or concerns.  Encourage them to contact you or make a contribution to the code.}_
+_If you are having difficulty using the app, or you would like to make a suggestion please contact Ben Ronda at bronda95@comcast.net. If you would like to make a contribution feel free to clone the repository and do as you wish._
 
 ## Technologies Used
 
