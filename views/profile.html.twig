@@ -21,16 +21,22 @@
         <button type='submit'>Add pokemon</button>
       </form>
           {% if pokemons is not empty %}
+            <div class="pokemon-list">
               {% for pokemon in pokemons %}
-              <li><h3>{{ pokemon.getName }} - {{ pokemon.getDexNumber }}
-                <img src='{{ pokemon.getImagePath }}' class="pokemon"/>
-                <form action="/delete_pokemon" method="post">
+              <div>
+                <a href="/pokemon/{{ pokemon.getId }}">
+                  <h3>{{ pokemon.getName }} - {{ pokemon.getDexNumber }}</h3>
+                  <div class="pokemon-image"><img src='{{ pokemon.getImagePath }}' class="pokemon_pic"/></div>
+                </a>
+                  <form action="/delete_pokemon" method="post">
                   <input name="_method" type="hidden" value="delete">
                   <input name="pokemon_id" type="hidden" value="{{ pokemon.getId }}">
                   <input name="user_id" type="hidden" value="{{ user.getId }}">
-                  <button type='submit'>x</button></form></h3>
-              </li>
+                  <button type='submit'>x</button></form>
+                </a>
+              </div>
               {% endfor %}
+            </div>
           {% else %}
               <h3>You haven't caught any pokemon yet!</h3>
           {% endif %}

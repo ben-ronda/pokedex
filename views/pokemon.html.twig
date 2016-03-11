@@ -10,37 +10,43 @@
     <!-- End Navbar -->
     <div class="container">
       <h1>Pokemon</h1>
+      <form method="get" action="/pokemon_all">
+      <input type="text" name="search"> <button type="submit">Search</button>
+      </form><br>
       <div id="content">
-        <table class="table table-bordered table-hover">
+        <table class="table table-bordered table-striped table-hover pokemon-table">
             {% if pokemons is not empty %}
-                <div class=".table_key">
-                    <tr>
-                        <th id="number">Number</th>
-                        <th id="img">Image</th>
-                        <th id="name">Name</th>
-                        <th id="height">Height</th>
-                        <th id="weight">Weight</th>
-                        <th id="type">Type 1</th>
-                        <th id="type">Type 2</th>
-                    </tr>
-                </div>
-                    {% for pokemon in pokemons %}
-                        <tr class="tr-height">
-                            <td id="number">{{ pokemon.getDexNumber }}</td>
-                            <td id="img"><a href="/pokemon/{{ pokemon.getId }}"><img src="{{ pokemon.getImagePath }}" class="pokemon_pic" /></a></td>
-                            <td id="name">{{ pokemon.getName }}</td>
-                            <td id="height">{{ pokemon.getHeightFeet }}' {{ pokemon.getHeightInches }}"</td>
-                            <td id="weight">{{ pokemon.getWeight }}</td>
-                        {% for type in pokemon.getTypes %}
-                          {% if pokemon.getTypes|length == 1 %}
-                            <td id="type">{{ type.getName }}</td>
-                            <td>N/A</td>
-                            {% else %}
-                            <td id="type">{{ type.getName }}</td>
-                          {% endif %}
-                        {% endfor %}
-                    </tr>
+            <thead>
+                <tr class="table_key">
+                    <th id="number">Number</th>
+                    <th id="img">Image</th>
+                    <th id="name">Name</th>
+                    <th id="height">Height</th>
+                    <th id="weight">Weight</th>
+                    <th id="type">Type 1</th>
+                    <th id="type">Type 2</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for pokemon in pokemons %}
+                    <tr class="tr-height" onClick="window.location='/pokemon/{{ pokemon.getId }}'">
+                        <td id="number">{{ pokemon.getDexNumber }}</td>
+                        <td id="img"><a href="/pokemon/{{ pokemon.getId }}"><img src="{{ pokemon.getImagePath }}" class="pokemon_pic" /></a></td>
+                        <td id="name">{{ pokemon.getName }}</td>
+                        <td id="height">{{ pokemon.getHeightFeet }}' {{ pokemon.getHeightInches }}"</td>
+                        <td id="weight">{{ pokemon.getWeight }}</td>
+                    {% for type in pokemon.getTypes %}
+                      {% if pokemon.getTypes|length == 1 %}
+                        <td id="type">{{ type.getName }}</td>
+                        <td>N/A</td>
+                        {% else %}
+                        <td id="type">{{ type.getName }}</td>
+                      {% endif %}
                     {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
             {% endif %}
         </table>
     </div>

@@ -11,7 +11,7 @@
 
     $app = new Silex\Application();
 
-    $server = 'mysql:host=localhost;dbname=pokedex';
+    $server = 'mysql:host=localhost:8889;dbname=pokedex';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
@@ -44,7 +44,8 @@
     $app->get("/pokemon/{id}", function($id) use ($app)
     {
         $pokemon = Pokemon::findPokemon($id);
-        return $app['twig']->render('onepokemon.html.twig', array('pokemon'=>$pokemon, 'types'=>Type::getAll(), 'pokemons'=>Pokemon::getAll()));
+        $parentPokemon = $pokemon->getParentPokemon();
+        return $app['twig']->render('onepokemon.html.twig', array('pokemon'=>$pokemon, 'parentPokemon'=>$parentPokemon, 'types'=>Type::getAll(), 'pokemons'=>Pokemon::getAll()));
     });
 
     $app->post("{id}/addPokemon", function($id) use ($app)
@@ -57,7 +58,12 @@
 
     $app->get("/pokemon_all", function() use ($app)
     {
-        return $app['twig']->render('pokemon.html.twig', array('pokemons'=>Pokemon::getAll()));
+        if(isset($_GET['search'])){
+            $pokemon = Pokemon::searchName($_GET['search']);
+        } else {
+            $pokemon = Pokemon::getAll();
+        }
+        return $app['twig']->render('pokemon.html.twig', array('pokemons'=>$pokemon));
     });
 
 
@@ -104,7 +110,8 @@
         $id = $_SESSION['user']['id'];
         $user = User::findUserById($id);
         $pokemon = $user->getPokemon();
-        return $app['twig']->render('profile.html.twig', array('pokemons'=>$pokemon, 'types'=>Type::getAll(), 'all_pokemons'=>Pokemon::getAll(), 'user' => $user));
+        $all_pokemons = Pokemon::getAllBut(array_map(function($onepoke){return $onepoke->getId();},$pokemon));
+        return $app['twig']->render('profile.html.twig', array('pokemons'=>$pokemon, 'types'=>Type::getAll(), 'all_pokemons'=>$all_pokemons, 'user' => $user));
     });
 
     ////////Add pokemon to user////////////
@@ -112,14 +119,16 @@
         $user = User::findUserById($_POST['user_id']);
         $pokemon = Pokemon::findPokemon($_POST['pokemon_id']);
         $user->addPokemon($pokemon);
-        return $app['twig']->render('profile.html.twig', array('username' => $user->getUsername(), 'pokemons' => $user->getPokemon(), 'user' => $user, 'all_pokemons' => Pokemon::getAll()));
+        $all_pokemons = Pokemon::getAllBut(array_map(function($onepoke){return $onepoke->getId();},$user->getPokemon()));
+        return $app['twig']->render('profile.html.twig', array('username' => $user->getUsername(), 'pokemons' => $user->getPokemon(), 'user' => $user, 'all_pokemons' => $all_pokemons));
     });
 
     $app->delete("/delete_pokemon", function() use ($app) {
         $user = User::findUserById($_POST['user_id']);
         $pokemon = Pokemon::findPokemon($_POST['pokemon_id']);
         $user->deletePokemon($pokemon);
-        return $app['twig']->render('profile.html.twig', array('username' => $user->getUsername(), 'pokemons' => $user->getPokemon(), 'user' => $user, 'all_pokemons' => Pokemon::getAll()));
+        $all_pokemons = Pokemon::getAllBut(array_map(function($onepoke){return $onepoke->getId();},$user->getPokemon()));
+        return $app['twig']->render('profile.html.twig', array('username' => $user->getUsername(), 'pokemons' => $user->getPokemon(), 'user' => $user, 'all_pokemons' => $all_pokemons));
     });
 
     return $app;
