@@ -9,9 +9,9 @@
     {% include '/includes/navbar.html.twig' %}
     <!-- End Navbar -->
     <div class="container">
-        <h1 class="type-item">{{ type.getName }}</a></h1>
-        <li class="type-item"><span class="bold">Strong Against:</span> {{ type.getStrength }}</li>
-        <li class="type-item"><span class="bold">Weak Against:</span> {{ type.getWeakness }}</li>
+        <img class="title_img" src="{{ type.getImg_path }}"/>
+        <li class="type-item"><h3><span class="bold">Strong Against:</span> {{ type.getStrength }}</h3></li>
+        <li class="type-item"><h3><span class="bold">Weak Against:</span> {{ type.getWeakness }}</h3></li>
         <div class="pokemon-list">
         {% for pokemon in type.getPokemon %}
         <div>

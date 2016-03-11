@@ -4,13 +4,15 @@
         private $name;
         private $weakness;
         private $strength;
+        private $img_path;
         private $id;
 
-        function __construct($name, $weakness, $strength, $id = null)
+        function __construct($name, $weakness, $strength, $img_path, $id = null)
         {
             $this->name = $name;
             $this->weakness = $weakness;
             $this->strength = $strength;
+            $this->img_path = $img_path;
             $this->id = $id;
         }
 
@@ -30,6 +32,11 @@
             return $this->strength;
         }
 
+        function getImg_path()
+        {
+            return $this->img_path;
+        }
+
         function getId()
         {
             return $this->id;
@@ -37,7 +44,7 @@
 
         function save()
         {
-          $GLOBALS['DB']->exec("INSERT INTO types (name, weakness, strength) VALUES ('{$this->getName()}', '{$this->getWeakness()}', '{$this->getStrength()}');");
+          $GLOBALS['DB']->exec("INSERT INTO types (name, weakness, strength, img_path) VALUES ('{$this->getName()}', '{$this->getWeakness()}', '{$this->getStrength()}', '{$this->getImg_path()}');");
           $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
@@ -49,8 +56,9 @@
                 $name = $type['name'];
                 $weakness = $type['weakness'];
                 $strength = $type['strength'];
+                $img_path = $type['img_path'];
                 $id = $type['id'];
-                $new_type = new Type($name, $weakness, $strength, $id);
+                $new_type = new Type($name, $weakness, $strength, $img_path, $id);
                 array_push($types, $new_type);
             }
             return $types;

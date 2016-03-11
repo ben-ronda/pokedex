@@ -7,6 +7,10 @@ body {
   padding-top: 125px;
 }
 
+a:hover {
+  color: #FFCB05;
+}
+
 .jumbotron {
   background-color: #313131;
 }
@@ -116,15 +120,26 @@ body {
   flex-wrap: wrap;
   justify-content: flex-start;
 }
+
 .pokemon-list div {
   margin: 20px;
   padding: 15px;
   text-align: center;
 }
+
 .pokemon-list .pokemon-image {
   background: url('../images/pokeball.png');
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
   padding: 15px;
+}
+
+.type_img {
+  width: 150px;
+  margin-right: 70px;
+}
+
+.title_img {
+  width: 300px;
 }

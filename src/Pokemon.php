@@ -72,8 +72,9 @@
                 $name = $type['name'];
                 $weakness = $type['weakness'];
                 $strength = $type['strength'];
+                $img_path = $type['img_path'];
                 $id = $type['id'];
-                $new_type = new Type($name, $weakness, $strength, $id);
+                $new_type = new Type($name, $weakness, $strength, $img_path, $id);
                 array_push($types, $new_type);
             }
             return $types;

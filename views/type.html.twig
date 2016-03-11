@@ -9,6 +9,7 @@
       {% include '/includes/navbar.html.twig' %}
     <!-- End Navbar -->
     <div class="container">
+      <h1>Types</h1>
         {% if types|length  %}
             {% set typesPerColumn = (types|length / 3)|round(0, 'ceil') %}
                 {% for type in types %}
@@ -16,9 +17,9 @@
                         <div class="col-md-4">
                           <ul>
                     {% endif %}
-                        <h1 class="type-item"><a href="/type/{{ type.getId }}">{{ type.getName }}</a></h1>
+                        <a href="/type/{{ type.getId }}"><img class="type_img" src="{{ type.getImg_path }}"/></a>
                         <li class="type-item"><span class="bold">Strong Against:</span> {{ type.getStrength }}</li>
-                        <li class="type-item"><span class="bold">Weak Against:</span> {{ type.getWeakness }}</li>
+                        <li class="type-item"><span class="bold">Weak Against:</span> {{ type.getWeakness }}</li><br><br>
                     {% if loop.last or loop.index % typesPerColumn == 0 %}
                             </ul>
                         </div>
