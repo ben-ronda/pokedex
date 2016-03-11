@@ -75,12 +75,12 @@
         $users = User::getAll();
         foreach($users as $user) {
             if($username == $user->getUsername()) {
-              return $app['twig']->render('home.html.twig', array('alert_register'=>true, 'alert_login'=>false, 'failed_register' => 'That username already exists. Please choose another.'));
+              return $app['twig']->render('home.html.twig', array('alert_register'=>true, 'alert_login'=>false, 'user' => $user, 'failed_register' => 'That username already exists. Please choose another.'));
             }
         }
         $new_user = new User($username, $password);
         $new_user->save();
-        return $app['twig']->render('profile.html.twig', array('username' => $new_user->getUsername(), 'pokemons' => $new_user->getPokemon()));
+        return $app['twig']->render('profile.html.twig', array('username' => $new_user->getUsername(), 'user' => $new_user, 'pokemons' => $new_user->getPokemon(), 'all_pokemons' => Pokemon::getAll()));
     });
 
     $app->post("/login", function() use ($app)
