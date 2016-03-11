@@ -107,16 +107,20 @@
 
     $app->get("/user", function() use ($app)
     {
-        $id = $_SESSION['user']['id'];
-        $user = User::findUserById($id);
-        $pokemon = $user->getPokemon();
-        if (empty($pokemon)){
-            $all_pokemons = Pokemon::getAll();
+        if($_SESSION['user']['id'] !== null) {
+            $id = $_SESSION['user']['id'];
+            $user = User::findUserById($id);
+            $pokemon = $user->getPokemon();
+                if (empty($pokemon)){
+                    $all_pokemons = Pokemon::getAll();
+                }
+                else{
+                    $all_pokemons = Pokemon::getAllBut(array_map(function($onepoke){return $onepoke->getId();},$pokemon));
+                }
+                return $app['twig']->render('profile.html.twig', array('pokemons'=>$pokemon, 'types'=>Type::getAll(), 'all_pokemons'=>$all_pokemons, 'user' => $user));
+        } else {
+            return $app['twig']->render('home.html.twig', array('types'=>Type::getAll(), 'pokemons'=>Pokemon::getALl(), 'alert_register'=>false, 'alert_login'=>false));
         }
-        else{
-            $all_pokemons = Pokemon::getAllBut(array_map(function($onepoke){return $onepoke->getId();},$pokemon));
-        }
-        return $app['twig']->render('profile.html.twig', array('pokemons'=>$pokemon, 'types'=>Type::getAll(), 'all_pokemons'=>$all_pokemons, 'user' => $user));
     });
 
     ////////Add pokemon to user////////////

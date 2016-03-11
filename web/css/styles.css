@@ -1,6 +1,6 @@
 body {
   background-color: #4c4c4c;
-  color: #d5d5d5;
+  color: #4c4c4c;
   font-size: 18px;
 
   font-family: 'Righteous', cursive;
@@ -33,9 +33,12 @@ a:hover {
   color: #3A5CA8;
 }
 
+.type_title {
+  margin-left: 30px;
+}
 .carousel {
   height: 350px;
-  padding-top: 30px;
+  margin-top: 70px;
 }
 
 .extra-link {
@@ -50,8 +53,9 @@ a:hover {
 }
 
 .page_titles {
-  text-shadow: 25px, 25px, 25px, #3A5CA8;
+  text-shadow: 0 1px #808d93, -1px 0 #cdd2d5, -1px 2px #808d93, -2px 1px #cdd2d5, -2px 3px #808d93, -3px 2px #cdd2d5, -3px 4px #808d93, -4px 3px #cdd2d5, -4px 5px #808d93, -5px 4px #cdd2d5, -5px 6px #808d93, -6px 5px #cdd2d5, -6px 7px #808d93, -7px 6px #cdd2d5, -7px 8px #808d93, -8px 7px #cdd2d5;
   color: #FFCB05;
+  font-size: 80px;
 }
 
 .logout {
@@ -61,7 +65,7 @@ a:hover {
   color: white;
 }
 
-.type_item {
+.gray {
   color: #d5d5d5;
 }
 
@@ -114,7 +118,7 @@ a:hover {
 
 .pokemon-table tbody tr:hover {
   cursor: pointer;
-  background: #F7D78B;
+  background: #ffe582;
 }
 
 .pokemon-img {

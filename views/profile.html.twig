@@ -12,7 +12,7 @@
       <h1 class="page_titles">Welcome!</h1>
       <form action='/add_pokemon' method='post'>
         <input id="user_id" name="user_id" type="hidden" value="{{ user.getId }}">
-        <label for="pokemon_id">Select a pokemon</label>
+        <label class="yellow" for="pokemon_id">Select a pokemon</label>
         <select id='pokemon_id' name='pokemon_id' type='text'>
             {% for pokemon in all_pokemons %}
                 <option value="{{ pokemon.getId }}"> {{ pokemon.getName }} </option>
@@ -38,7 +38,7 @@
               {% endfor %}
             </div>
           {% else %}
-              <h3>You haven't caught any pokemon yet!</h3>
+              <h3 class="yellow">You haven't caught any pokemon yet!</h3>
           {% endif %}
           <form action="/logout" method="post">
             <button type='submit'>Logout</button>

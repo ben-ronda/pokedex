@@ -16,16 +16,16 @@
       <div class="row">
 
         <div class="col col-md-6 pokemon-info">
-          <li><span class="bold">Dex Number:</span> {{ pokemon.getDexNumber }}</li>
-          <li><span class="bold">Size:</span> {{ pokemon.getHeightFeet }}' {{ pokemon.getHeightInches }}"</li>
-          <li><span class="bold">Weight:</span> {{ pokemon.getWeight }} pounds</li>
+          <li class="blue"><span class="bold">Dex Number:</span> {{ pokemon.getDexNumber }}</li>
+          <li class="blue"><span class="bold">Size:</span> {{ pokemon.getHeightFeet }}' {{ pokemon.getHeightInches }}"</li>
+          <li class="blue"><span class="bold">Weight:</span> {{ pokemon.getWeight }} pounds</li>
           {% for type in pokemon.getTypes %}
-          <li><span class="bold">Type:</span> <a href="/type/{{ type.getID }}">{{ type.getName }}</a></li>
+          <li class="blue"><span class="bold">Type:</span> <a href="/type/{{ type.getID }}">{{ type.getName }}</a></li>
           {% endfor %}
           {% if parentPokemon %}
-          <li><span class="bold">Evolves From:</span> <a href="/pokemon/{{parentPokemon.getId}}">{{parentPokemon.getName}}</a></li>
+          <li class="blue"><span class="bold">Evolves From:</span> <a href="/pokemon/{{parentPokemon.getId}}">{{parentPokemon.getName}}</a></li>
           {% endif %}
-          <li><span class="bold">Description:</span> {{ pokemon.getDescription }}</li>
+          <li class="blue"><span class="bold">Description:</span> {{ pokemon.getDescription }}</li>
         </div>
       </div>
     </div>

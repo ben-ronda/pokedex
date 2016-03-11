@@ -38,6 +38,10 @@ _See Type_list file for a list of data used in database._
 
 _If you are having difficulty using the app, or you would like to make a suggestion please contact Ben Ronda at bronda95@comcast.net. If you would like to make a contribution feel free to clone the repository and do as you wish._
 
+## Known Bugs
+
+_As of 3/11/2016 if a user is not logged in the profile link in the navbar will throw an error when it brings up the home page. Notice: Undefined index: id in /Users/Guest/Desktop/pokedex/app/app.php on line 110. This error is not visible in this version due to font color for styling purposes._
+
 ## Technologies Used
 
 _This app was built in PHP, using Silex and Twig. The database was created with MySQL using PHPMyAdmin as a database manager._

@@ -10,8 +10,8 @@
     <!-- End Navbar -->
     <div class="container">
         <img class="title_img" src="{{ type.getImg_path }}"/>
-        <li class="type-item"><h3><span class="bold">Strong Against:</span> {{ type.getStrength }}</h3></li>
-        <li class="type-item"><h3><span class="bold">Weak Against:</span> {{ type.getWeakness }}</h3></li>
+        <li class="gray"><h3><span class="bold">Strong Against:</span> {{ type.getStrength }}</h3></li>
+        <li class="gray"><h3><span class="bold">Weak Against:</span> {{ type.getWeakness }}</h3></li>
         <div class="pokemon-list">
         {% for pokemon in type.getPokemon %}
         <div>
