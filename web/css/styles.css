@@ -1,10 +1,14 @@
 body {
-  background-color: #ffffe7;
-  color: #355AAA;
+  background-color: #4c4c4c;
+  color: #d5d5d5;
   font-size: 18px;
+
   font-family: 'Righteous', cursive;
-  background-color: #908F8F;
   padding-top: 125px;
+}
+
+body button {
+  color: #3A5CA8;
 }
 
 a:hover {
@@ -20,6 +24,13 @@ a:hover {
   width: 300px; /* use this, or not */
   height: 80%;
   margin: auto;
+}
+.yellow {
+  color: #FFCB05;
+}
+
+.blue {
+  color: #3A5CA8;
 }
 
 .carousel {
@@ -38,11 +49,20 @@ a:hover {
   width: auto;
 }
 
+.page_titles {
+  text-shadow: 25px, 25px, 25px, #3A5CA8;
+  color: #FFCB05;
+}
+
 .logout {
   float: right;
   margin-top: 35px;
   background-color: #355AAA;
   color: white;
+}
+
+.type_item {
+  color: #d5d5d5;
 }
 
 .bold
@@ -58,6 +78,10 @@ a:hover {
 .pokelogo {
   height: 60px;
   width: auto;
+}
+
+.navbar {
+  background-color: #d5d5d5;
 }
 
 .navbar-brand {
@@ -80,6 +104,7 @@ a:hover {
 
 .pokemon-table {
   background: #E0E0E0;
+  color: #3A5CA8;
 }
 
 .pokemon-table #img {
