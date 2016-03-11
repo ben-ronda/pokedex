@@ -9,18 +9,22 @@
       {% include '/includes/navbar.html.twig' %}
       <!-- End Navbar -->
     <div class="container">
-      <h1 class="pokename">{{ pokemon.getName }}</h1>
-      <div class="row">
-        <div class="col col-md-6">
+          <div class="col col-md-6 pokemon-img">
           <img src='{{ pokemon.getImagePath }}' class="pokemon"/><br><br>
         </div>
-        <div class="col col-md-6">
-          <li><span class="bold">Dex Number:</span> {{ pokemon.getDexNumber }}</li><br>
-          <li><span class="bold">Size:</span> {{ pokemon.getHeightFeet }}' {{ pokemon.getHeightInches }}"</li><br>
-          <li><span class="bold">Weight:</span> {{ pokemon.getWeight }} pounds</li><br>
+      <h1 class="pokename">{{ pokemon.getName }}</h1>
+      <div class="row">
+        
+        <div class="col col-md-6 pokemon-info">
+          <li><span class="bold">Dex Number:</span> {{ pokemon.getDexNumber }}</li>
+          <li><span class="bold">Size:</span> {{ pokemon.getHeightFeet }}' {{ pokemon.getHeightInches }}"</li>
+          <li><span class="bold">Weight:</span> {{ pokemon.getWeight }} pounds</li>
           {% for type in pokemon.getTypes %}
-          <li><span class="bold">Type:</span> <a href="/type/{{ type.getID }}">{{ type.getName }}</a></li><br>
+          <li><span class="bold">Type:</span> <a href="/type/{{ type.getID }}">{{ type.getName }}</a></li>
           {% endfor %}
+          {% if parentPokemon %}
+          <li><span class="bold">Evolves From:</span> <a href="/pokemon/{{parentPokemon.getId}}">{{parentPokemon.getName}}</a></li>
+          {% endif %}
           <li><span class="bold">Description:</span> {{ pokemon.getDescription }}</li>
         </div>
       </div>

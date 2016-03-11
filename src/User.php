@@ -114,7 +114,8 @@
               $img = $pokemon['img'];
               $description = $pokemon['description'];
               $id = $pokemon['id'];
-              $new_pokemon = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight, $img, $description, $id);
+              $parent_id = $pokemon['parent_id'];
+              $new_pokemon = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight, $img, $description, $parent_id, $id);
                 array_push($pokemons, $new_pokemon);
             }
             return $pokemons;

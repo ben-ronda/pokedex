@@ -12,10 +12,16 @@
         <h1 class="type-item">{{ type.getName }}</a></h1>
         <li class="type-item"><span class="bold">Strong Against:</span> {{ type.getStrength }}</li>
         <li class="type-item"><span class="bold">Weak Against:</span> {{ type.getWeakness }}</li>
+        <div class="pokemon-list">
         {% for pokemon in type.getPokemon %}
-            <h3><a href="/pokemon/{{ pokemon.getId }}">{{ pokemon.getName }}</a></h3>
-            <img src='{{ pokemon.getImagePath }}' class="pokemon_pic"/>
+        <div>
+          <a href="/pokemon/{{ pokemon.getId }}">
+            <h3>{{ pokemon.getName }}</h3>
+            <div class="pokemon-image"><img src='{{ pokemon.getImagePath }}' class="pokemon_pic"/></div>
+          </a>
+        </div>
         {% endfor %}
+        </div>
     </div>
   </body>
 </html>

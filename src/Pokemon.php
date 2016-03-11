@@ -9,7 +9,7 @@
         private $img;
         private $description;
 
-        function __construct($name, $dex_number, $height_feet, $height_inches, $weight, $img, $description, $id = null){
+        function __construct($name, $dex_number, $height_feet, $height_inches, $weight, $img, $description, $parent_id, $id = null){
             $this->name = $name;
             $this->dex_number = $dex_number;
             $this->height_feet = $height_feet;
@@ -18,6 +18,7 @@
             $this->img = $img;
             $this->description = $description;
             $this->id = $id;
+            $this->parent_id = $parent_id;
         }
 
         function getName(){
@@ -50,6 +51,14 @@
 
         function getDescription(){
             return $this->description;
+        }
+
+        function getParentId(){
+            return $this->parent_id;
+        }
+
+        function getParentPokemon(){
+            return Pokemon::findPokemon($this->parent_id);
         }
 
         function getTypes(){
@@ -93,7 +102,8 @@
                 $img = $pokemon['img'];
                 $description = $pokemon['description'];
                 $id = $pokemon['id'];
-                $new_pokemon = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight, $img, $description, $id);
+                $parent_id = $pokemon['parent_id'];
+                $new_pokemon = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight, $img, $description, $parent_id, $id);
 
                 array_push($matches, $new_pokemon);
             }
@@ -112,7 +122,29 @@
                 $img = $pokemon['img'];
                 $description = $pokemon['description'];
                 $id = $pokemon['id'];
-                $new_pokemon = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight, $img, $description, $id);
+                $parent_id = $pokemon['parent_id'];
+                $new_pokemon = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight, $img, $description, $parent_id, $id);
+
+                array_push($all, $new_pokemon);
+            }
+            return $all;
+        }
+
+        static function getAllBut($ids){
+            $imploded_ids = implode($ids, ",");
+            $returned_pokemon = $GLOBALS['DB']->query("SELECT * FROM pokemon WHERE pokemon.id NOT IN ({$imploded_ids}) ORDER BY dex_number;");
+            $all = array();
+            foreach($returned_pokemon as $pokemon){
+                $name = $pokemon['name'];
+                $dex_number = $pokemon['dex_number'];
+                $height_feet = $pokemon['height_feet'];
+                $height_inches = $pokemon['height_inches'];
+                $weight = $pokemon['weight'];
+                $img = $pokemon['img'];
+                $description = $pokemon['description'];
+                $id = $pokemon['id'];
+                $parent_id = $pokemon['parent_id'];
+                $new_pokemon = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight, $img, $description, $parent_id, $id);
 
                 array_push($all, $new_pokemon);
             }
