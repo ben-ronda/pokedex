@@ -22,8 +22,13 @@
       </form>
           {% if pokemons is not empty %}
               {% for pokemon in pokemons %}
-              <li><h3>{{ pokemon.getName }} - {{ pokemon.getDexNumber }}</h3>
+              <li><h3>{{ pokemon.getName }} - {{ pokemon.getDexNumber }}
                 <img src='{{ pokemon.getImagePath }}' class="pokemon"/>
+                <form action="/delete_pokemon" method="post">
+                  <input name="_method" type="hidden" value="delete">
+                  <input name="pokemon_id" type="hidden" value="{{ pokemon.getId }}">
+                  <input name="user_id" type="hidden" value="{{ user.getId }}">
+                  <button type='submit'>x</button></form></h3>
               </li>
               {% endfor %}
           {% else %}

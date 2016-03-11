@@ -6,15 +6,15 @@
   </head>
   <body>
     <!--Navbar-->
-      {% include '/includes/navbar.html.twig' %}
+    {% include '/includes/navbar.html.twig' %}
     <!-- End Navbar -->
     <div class="container">
-      <h1 class="type-item">{{ type.getName }}</a></h1>
-      <li class="type-item"><span class="bold">Strong Against:</span> {{ type.getStrength }}</li>
-      <li class="type-item"><span class="bold">Weak Against:</span> {{ type.getWeakness }}</li>
+        <h1 class="type-item">{{ type.getName }}</a></h1>
+        <li class="type-item"><span class="bold">Strong Against:</span> {{ type.getStrength }}</li>
+        <li class="type-item"><span class="bold">Weak Against:</span> {{ type.getWeakness }}</li>
         {% for pokemon in type.getPokemon %}
             <h3><a href="/pokemon/{{ pokemon.getId }}">{{ pokemon.getName }}</a></h3>
-            <img src='{{ pokemon.getImagePath }}' class="pokemon"/>
+            <img src='{{ pokemon.getImagePath }}' class="pokemon_pic"/>
         {% endfor %}
     </div>
   </body>

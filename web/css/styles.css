@@ -23,8 +23,6 @@ body {
   padding-top: 30px;
 }
 
-
-
 .extra-link {
   margin-right: 25px;
   margin-top: 25px;
@@ -70,4 +68,8 @@ body {
 .pokename {
   text-align: center;
   font-size: 80px;
+}
+
+.pokemon_pic {
+  height: 75px;
 }
