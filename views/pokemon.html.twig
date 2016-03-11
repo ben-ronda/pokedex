@@ -27,7 +27,7 @@
                     {% for pokemon in pokemons %}
                         <tr class="tr-height">
                             <td id="number">{{ pokemon.getDexNumber }}</td>
-                            <td id="img"><a href="/pokemon/{{ pokemon.getId }}"><img src="{{ pokemon.getImagePath }}" class="pokemon" /></a></td>
+                            <td id="img"><a href="/pokemon/{{ pokemon.getId }}"><img src="{{ pokemon.getImagePath }}" class="pokemon_pic" /></a></td>
                             <td id="name">{{ pokemon.getName }}</td>
                             <td id="height">{{ pokemon.getHeightFeet }}' {{ pokemon.getHeightInches }}"</td>
                             <td id="weight">{{ pokemon.getWeight }}</td>

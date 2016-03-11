@@ -44,8 +44,7 @@
     $app->get("/pokemon/{id}", function($id) use ($app)
     {
         $pokemon = Pokemon::findPokemon($id);
-        $user = User::findUserById($id);
-        return $app['twig']->render('onepokemon.html.twig', array('pokemon'=>$pokemon, 'types'=>Type::getAll(), 'pokemons'=>Pokemon::getAll(), 'user' => $user));
+        return $app['twig']->render('onepokemon.html.twig', array('pokemon'=>$pokemon, 'types'=>Type::getAll(), 'pokemons'=>Pokemon::getAll()));
     });
 
     $app->post("{id}/addPokemon", function($id) use ($app)

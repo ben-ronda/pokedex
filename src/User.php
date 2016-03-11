@@ -120,12 +120,9 @@
             return $pokemons;
         }
 
-        function deletePokemon()
+        function deletePokemon($pokemon)
         {
-            $GLOBALS['DB']->exec("DELETE FROM users
-                JOIN pokemon_users ON (users.id = pokemon_users.user_id)
-                JOIN pokemon ON (pokemon_users.pokemon_id = pokemon.id)
-                WHERE users.id = {$this->getId()};");
+            $GLOBALS['DB']->exec("DELETE FROM pokemon_users WHERE user_id = {$this->getId()} AND pokemon_id = {$pokemon->getId()};");
         }
 
     }

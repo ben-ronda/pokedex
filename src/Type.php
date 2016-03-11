@@ -106,14 +106,15 @@
                 WHERE types.id = {$this->getId()};");
             $pokemons = array();
             foreach($returned_pokemon as $pokemon) {
-                $name = $pokemon['name'];
-                $dex_number = $pokemon['dex_number'];
-                $height_feet = $pokemon['height_feet'];
-                $height_inches = $pokemon['height_inches'];
-                $weight = $pokemon['weight'];
-                $img = $pokemon['img'];
-                $id = $pokemon['id'];
-                $new_pokemon = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight, $img, $id);
+              $name = $pokemon['name'];
+              $dex_number = $pokemon['dex_number'];
+              $height_feet = $pokemon['height_feet'];
+              $height_inches = $pokemon['height_inches'];
+              $weight = $pokemon['weight'];
+              $img = $pokemon['img'];
+              $description = $pokemon['description'];
+              $id = $pokemon['id'];
+              $new_pokemon = new Pokemon($name, $dex_number, $height_feet, $height_inches, $weight, $img, $description, $id);
                 array_push($pokemons, $new_pokemon);
             }
             return $pokemons;
