@@ -11,7 +11,7 @@
 
     $app = new Silex\Application();
 
-    $server = 'mysql:host=localhost:8889;dbname=pokedex';
+    $server = 'mysql:host=localhost;dbname=pokedex';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
